@@ -1,0 +1,52 @@
+0	0	A man tried to mug me and I beat the shit out of him.
+0	1	I'm a 5'2'' woman but that didn't stop me from beating up my mugger.
+1	0	A classmate who had been kind to me died in a car accident. I didn't bother to learn her name while she was alive.
+1	1	One of my classmates died freshman year, I felt bad because I hadn't even cared enough to learn her name.
+2	0	My girlfriend started talking in her sleep about her stepfather sexually abusing her.
+2	1	My high school girlfriend had traumatic dreams about being sexually abused by her father.
+3	0	My girlfriend dumped me for some other guy, but we hooked up two years later and I had the best mashed potatoes ever.
+3	1	My girlfriend dumped me, then years later after we had a booty call, I blew her off.
+4	0	I followed what I thought was my mother's voice to a room upstairs. The voice came from a strange figure, not my mother.
+4	1	When I was a child living a big, old house, I encountered a strange being with a voice like my mother's.
+5	0	When I was little I saw an orb of light come into my room, drift over my bed, and then leave and enter my mother's room. The next morning I told my mom and she said we had been visited by my grandfather.
+5	1	When I was a child my dead grandfather visited me and my mom. In my teens, a woman appeared in my dreams consistently over the span of years.
+6	0	I found a white trash wallet with nothing good in it, so I burnt it.
+6	1	I found a man's wallet; instead of returning it, I burnt it.
+7	0	A woman at Jamba juice where my sister used to work poured her smoothie onto the floor after my sister made her a bigger size smoothie by mistake.
+7	1	A Jamba Juice customer poured her whole smoothie on the floor after my sister gave her a little extra free of charge.
+8	0	My friends and I got attacked by some a group of black guys and when I reported the story people accused me of starting a race-battle.
+8	1	I attempted to defend my friend who was getting attacked by a  group of young men. Once I had the attacker's attention, my friend drove off and went to Taco Bell.
+9	0	I worked a claim once where a car had been stolen, driven off a cliff, and found two weeks later with the dead thief strapped to the front seat.
+9	1	A stolen car was found two weeks later underwater, with the car thief strapped into the front seat.
+10	0	We were passing through the Bermuda triangle when our compass started spinning rapidly and our GPS went dead.
+10	1	While working for the Coast Guard, in the middle of the night in the Bermuda Triangle, my compass began spinning and the GPS went dead.
+11	0	I found a dog in my neighborhood and put up fliers to find the owner. The owner came to my house with police and accused me of stealing the dog.
+11	1	I found a lady's dog, and she accused me of stealing him in front of police.
+11	2	I found a dog, and then I was accused of stealing it. I still made $200 because the cops made the owner pay me reward money.
+11	3	I found a lost dog and made arrangements with the owner to come pick up her dog. When the owner came to collect the dog, she brought the police and accused me of stealing her dog.
+12	0	My friend's mother revealed to him that she and my friend's father had a baby while in high school and put her up for adoption.
+12	1	My friend found out that he has a sister who his parents put up for adoption before they had him and his eight siblings.
+13	0	I helped my friend with spinal bifida stand up, and I got screamed at and had to go to the headmasters office, who accused me of putting my friend in danger.
+13	1	My attempt to help a fallen friend on the playground was misinterpreted as bullying by a teacher and later by school administration.
+14	0	I let a door go and it smacked a homeless woman's face after she yelled at me for holding the door open for her.
+14	1	I held a door open for a homeless woman who was struggling push her shopping cart out of a fast food restaurant. She started yelling at me and told me to fuck off.
+15	0	An incoming prisoner being processed into jail had underwear caked in a layer of feces.
+15	1	I was so disgusted by this one guy's underwear during the strip search that I just passed him through the squat and cough.
+16	0	I hacked into a classmate's blog and deleted every single post.
+16	1	I hacked a girl's Xanga account and deleted two years of entries in revenge for her harassing me.
+17	0	I took a dog off the street and gave her to my grandparents, and she still remembers me. Everytime I call up my grandparents and they tell her I'm coming, she loses it.
+17	1	The dog I found for my grandparents still gets really excited to see me whenever I come to visit.
+18	0	I could be typing on a new Macbook Pro I found but instead I turned it in to an ungracious owner.
+18	1	I found a laptop at a bar and turned it over to the bartender. When the owner came to retrieve it, she was completely ungrateful and rude about it.
+19	0	My co-worker set me up a man who looked really freaky, and afterwards she told me it didn't sound like him. Apparently he was going through a psychotic break down and killed himself a short time later.
+19	1	This one guy dressed kinda freaky for our date killed himself soon after.
+20	0	When I was reading in my bed one night my book slipped behind the bed and something seemed to be pulling on it from underneath my bed. Then I heard a scratching noise, and the next morning there was no book but scratch marks.
+20	1	I had to fight with a monster in my room for the book I was reading at bedtime.
+20	2	While reading in the dark one night, I dropped my book between the bed and the wall. A mysterious hand grabbed onto my book from under the bed.
+20	3	A mysterious creature stole my book from me when I was a child.
+21	0	I became despised by my entire family after saving my mother's life, because I was unable to adequately handle her debt.
+21	1	My mother tried to commit suicide by overdosing on opiates and I saved her life.
+22	0	A girl set up a date with a guy online, who came to her office parking lot and asked her to bring him napkins after he had just taken care of ''business.''
+22	1	A girl was about to meet a guy she had met online when he asked her to first come to his car and bring him napkins because he had masturbated and needed to clean up.
+23	0	A strange guy offered to watch my father-in-law's truck overnight.
+23	1	This guy told me he would watch my truck overnight for 10 dollars, and I thought he was threatening me by not moving from the truck until I gave him the money. However, when I gave him the 10 dollars he actually stayed up all night watching over my truck.

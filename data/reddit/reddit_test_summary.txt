@@ -1,0 +1,114 @@
+0	0	To this day, my mom tells the story about how only I could try and offer someone a ride on the coldest night of the year and end up picking up a hooker.
+0	1	I accidentally picked up a hooker.
+0	2	I picked up a girl on the side of the road on a cold night, and she turned out to be a hooker.
+0	3	I accidently picked up a hooker, thinking she was just a underprepared girl needing a ride.
+1	0	I attempted to block a projectile from hitting a stranger by putting my hands in front of her face. The projectile didn't come near to hitting her, so she did not understand my actions and sternly told me to leave.
+1	1	I put my hands up in front of a woman's face to protect her from a projectile, but she didn't see it and immediately told me I needed to leave the area.
+2	0	When my mother saw a black child for the first time she pointed at her and called her a monkey.
+2	1	My mom made a racist comment when she was a kid and called a black girl a monkey.
+2	2	When my mother was a young child, she saw a black person for the first time and shouted, ''look mommy a monkey! ''
+2	3	When my mother was a child she had never seen a black person before, and when she saw a black girl for the first time she called her a monkey.
+3	0	A boy drove by some girls, stuck his ass out, and shat on them.
+3	1	My high school classmate unintentionally ejected his bowels all over two of his female classmates.
+4	0	I made $5000 one summer working for a guy younger than me who hired me to do random things like read Harry Potter to him and do his papers.
+4	1	One summer a rich schoolmate hired me and my friends to work for him, doing a bunch of odd jobs like cooking for him and watching TV with him.
+4	2	I worked for a guy who tried to get all his personal assistants drunk so we'd get tattoos of his name.
+4	3	A spendthrift college student hired me and six other college students one summer to complete mundane tasks and to keep him company.
+5	0	I used to think the ''notary public'' was the ''Notar Republic'' and that when people were going to the notary they were going to the Caribbean.
+5	1	I used to think a Notary Public was a vacation spot called the Notar Republic.
+6	0	I walked to the GWB to kill myself, but on the way a man started to talk to me, and that conversation saved my life.
+6	1	I was going to kill myself when a stranger stopped me and told me that things would get better.
+6	2	An old man saved me from taking my own life when he told me I looked just like his wife the day she died.
+6	3	I was about to kill myself, serendipitously an old man stopped me and told me my life is precious.
+7	0	I attempted to return a lost purse, but rather than being grateful, the owner accused me of thief.
+7	1	A woman whose purse I found threatened to tell the police I stole it.
+8	0	While driving home one night I saw a woman covered in blood standing by the side of the road. As I passed she attempted to launch herself at my car.
+8	1	While driving late at night, a woman in white pajamas covered in blood launched herself at my car.
+9	0	A stand-up comic told a story about a doctor who shook an EMT's hand from inside a woman's body.
+9	1	An EMT held an infant's head in position through the mother's vagina while the doctor performed a c-section. Once the baby was removed, the doctor shook hands with the EMT from inside the mother.
+10	0	When I was patrolling a neighborhood, a mentally ill person with a 40 ounce bottle and a knife carter started running at me. Then he broke the bottle in his own hand and ran away.
+10	1	As a rookie, I witnessed a huge, mentally-disturbed guy at a cemetery have a psychotic episode.
+11	0	I had a girlfriend moment with Madeleine Albright in a ladies bathroom.
+11	1	I made a comment about pantyhose to a woman in the bathroom only to find out it was was Madeleine Albright.
+11	2	I saw Madeleine Albright in the bathroom hiking her pantyhose up.
+11	3	I had an accidental girlfriend moment with the Secretary of State, Madeleine Albright.
+12	0	I accidentally hit a girl in the face with a golf club.
+12	1	I tried to mini-golf with a proper golf swing and whacked a girl's face.
+12	2	I didn't know how to play minigolf when I was six, and I whacked the girl behind me with my club, maybe even breaking her nose.
+12	3	I once hit my friend's sister in the face with a golf club.
+13	0	We accidentally put laundry detergent instead of sugar in the lemonade.
+13	1	Once my cousin and I accidentally used laundry detergent instead of sugar for our lemonade stand.
+13	2	My friend and I had a lemonade stand and accidentally used laundry detergent instead of sugar in the lemonade.
+13	3	As a child I sold lemonade at a lemonade stand accidentally made with laundry detergent instead of with sugar.
+14	0	I accidentally brought unkosher food into my jewish friend's house.
+14	1	I ordered pepperoni pizza in my friend's kosher house, and she stopped being friends with me over it.
+15	0	I was outside my house and realized I forgot my wallet. But at the same time, two black men were walking in the street, so when I made a startled face and ran back into my house, falling along the way, they must have thought I was scared of them.
+15	1	I made a startled face because I'd forgotten my wallet, and then I fell running back to the house, making the two young black men walking near me think that I was terrified of them.
+16	0	Thanks to carnitas and some awful traffic, I shit myself on the way to the bathroom in a parking lot outside Home Depot. I had to finish and clean up behind a movie theater, and I couldn't get rid of the smell in the car.
+16	1	I soiled myself in a parking lot whilst running for the restroom.
+17	0	I attempted to save a woman from a domestic violence situation, however she responded by clawing me in the face.
+17	1	I hit a man who was kicking the woman he was with, and she turned around and started hitting me.
+18	0	I went on a date with a guy who insisted on coming into my house afterwards. He tried to have sex with me, I said no, and then he jerked off on me.
+18	1	I cancelled my account after a guy jacked off and came on my couch.
+19	0	My ex-girlfriend broke into my house, destroyed some of my belongings, and put a caustic cleaning product into a bottle of vodka and personal lubricant.
+19	1	I met someone on the internet, and she broke into my house, tried to poison me, and trashed my laptop.
+20	0	I tried to punish the neighbors that ran over my dog, but what I did wasn't enough. I could have tortured them more.
+20	1	A neighbor killed my dog so I vandalized his house.
+21	0	Ever since some of my throwaway user names have been linked to my identity, I always make sure to lie in my comments and change my writing style.
+21	1	A guy who was stalking me and my girlfriend on the internet found two of my throwaways.
+22	0	A seizure made my dad try to choke me while I was driving.
+22	1	My dad is an epileptic, and once he wrapped his hands around my throat as I was driving.
+23	0	When I was a kid, I ran a 500+ member clan and pretended to be a North Korean online until I got grounded at the age of 14. I also internet dated a 24 year old who didn't know I was 12.
+23	1	When I was 12 I ran a 500+ member clan and pretended to be a 27 year old north korean.
+24	0	I needed alcohol to enjoy the drug.
+24	1	Alcohol helped me enjoy ''it'' more.
+25	0	A coworker found a wallet, and when I called the owner, she accused him of stealing her money.
+25	1	When I found a lady at work's wallet, she blamed a totally honest houseman for cash missing even though it was her own fault for losing it.
+25	2	I found someone's wallet, but then she blamed me because her money was missing.
+25	3	I returned a woman's lost wallet. Instead of being grateful that her wallet was returned, she accused employees of stealing her money.
+26	0	When I was in Iguazu Falls I really needed to take a shit so I sprinted through the tourists and proceeded to take the shit of shits.
+26	1	I almost shit my pants hiking across a waterfall in Argentina.
+27	0	Despite the ordeal of just giving birth, my wife was more on-point than I was during the nurse's hearing test.
+27	1	After my wife had a baby, a nurse asked us how many N's were in my last name, but I misunderstood her for asking how many aunts that baby had with that last  name. I babbled on for a while until finally my wife got my attention and corrected me.
+28	0	There was no food at the wedding, so everyone started to leave. The bride ran across the room and blocked the doors, screaming ''Bride's Day, Bride's Way!''
+28	1	I attended a wedding which offered no dinner at the reception. As hungry guests began to leave the bride made a scene by blocking the door.
+29	0	I blamed another kid for my fart during library time in second grade.
+29	1	I farted in 2nd grade and blamed the kid sitting next to me.
+30	0	A black customer momentarily thought I was racist when I explained that his battery needed a ''white power'' label in order to have a warranty.
+30	1	I accidentally said the warranty sticker was labeled ''white power'' instead of ''econo power'' to a black guy who wanted a car batter replacement.
+31	0	I saved a woman from getting hit in the face with a clump of sod, but security pulled me out of the crowd because they saw the sod in my hand.
+31	1	At a concert, I grabbed a chunk of dirt in mid-air that was being thrown at a woman, and security thought I was throwing the dirt.
+32	0	My teacher lent me his calculator for a test, and I used the calculator's history to cheat.
+32	1	I used my teacher's calculator memory to get the answers for my physics test.
+33	0	Energy companies are lying about their prices.
+33	1	Energy distributors in the UK have energy generators owned by the same parent company so that they can charge whatever price they want to the consumer.
+34	0	I had some crazy friends who caused trouble for me after I lent rent money to them.
+34	1	I loaned some money to some friends so they wouldn't default on their lease. They never paid me back, took my car without permission, and broke down the door of my apartment.
+35	0	I was removing a bench from the shore and putting it in the dumpster when I noticed blood pouring out of my finger. It turned out that some concrete that had slipped had caught my finger against the edge of the dumpster and quite literally smashed it off at the first knuckle.
+35	1	I was putting concrete blocks into a dumpster when the concrete slipped and cut my finger completely off.
+36	0	My mom found a phone in a parking lot. When we called the owners they demanded that we meet them closer to where they were, which we couldn't, and when the owner finally arrived to pick up the phone she angrily grabbed it from me and left.
+36	1	I returned a lost phone, and the woman who came to collect it spoke to me in an angry voice and never thanked me.
+37	0	I emailed the KKK to ask what their official bleach is. I didn't get a response.
+37	1	I emailed the KKK to ask them what brand of bleach the organization endorses.
+38	0	I knew a woman who was kicked out of wedding plans because she was pregnant, and then when she miscarried the bride said ''good, well now you can be back in the wedding.''
+38	1	She miscarried after the bride kicked her out of the wedding because she would be pregnant in the pictures.
+39	0	At 12 I got a weird black metal zit thing under my skin.
+39	1	I found a black metal sphere in my earlobe.
+40	0	Once I called a kid named ''Nichols'' by the nickname ''Nick,'' and he just wailed at the top of his lungs about why does everyone call me Nick.
+40	1	A child told me that I could call him Nick, and became irrationally frustrated after I called him ''Nick.''
+41	0	I was on a call for a suicide and examining the dead body when the dead guy let out a massive and disgusting fart.
+41	1	I went on a suicide call and when the dead guy farted, it was the most epic and fatal fart of all time, the most horrible thing I have smelled ever. It was so bad I couldn't finish my work and my partner and trainee had to handle the gassy guy instead.
+42	0	I gave a beggar kid my own coffee and biscuits, he returned the favor by throwing it to the ground and asking for money.
+42	1	I gave a beggar some food and he threw it on the ground and asked for money.
+43	0	I got revenge on the bar that accused my mom of being a prostitute and banned her.
+43	1	I got revenge on a bar by reporting its trademark infringement.
+44	0	My uncle's best-friend stood up for a girl who was fighting with a guy in a bar. The guy then stabbed him in the back 3 times.
+44	1	A guy hitting his girlfriend stabbed me in the back multiple times after I tried to stop him.
+45	0	I was harassed by a lady at the mall when I tried to stop her son from running away.
+45	1	A little boy was running through the mall and I grabbed him so he wouldn't get lost. His mother then assaulted me.
+46	0	My grandfather was dying of alzheimers and my sister gave him a teddy bear that said ''I love you'' when you touched it. After he died let us know he had ''made it there safe'' by making his stuffed teddy bear say ''I love you'' on its own.
+46	1	After my grandfather passed away, it seemed he send us a message beyond the grave through a plush bear, which said: ''I love you.''
+46	2	My grandpa spoke from the dead through his talking toy bear.
+46	3	After my grandfather died, a stuffed bear that he owned started speaking on its own, which was a coincidence after my mother asked him to send a sign that he had ''made if there safe'' after he died.
+47	0	One girl at my boarding school camped all alone one weekend. When she developed the pictures from the trip, she found pictures taken of her while sleeping.
+47	1	A girl develops some film after a camping trip completely alone and realizes that an entire roll is of her sleeping.
