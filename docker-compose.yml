@@ -1,0 +1,5 @@
+services:
+  openie5:
+    image: chengchingwen/openie
+    ports:
+      - 8000:8000
