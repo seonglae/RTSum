@@ -1,6 +1,5 @@
 # SJYYJ
 
-
 ## Get Started
 
 ```bash
@@ -10,6 +9,7 @@ pip install -r requirements-dev.lock
 ```
 
 ## Run
+
 ```bash
 docker compose up
 python main.py file 'data/cnn/article.txt'
