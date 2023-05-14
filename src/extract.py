@@ -1,6 +1,6 @@
 from typing import TypedDict
 from pyopenie import OpenIE5
-
+from unicodedata import normalize
 
 class Argument(TypedDict):
   text: str
@@ -24,6 +24,7 @@ class Triple(TypedDict):
 
 def extract(text: str, host='http://localhost:8000') -> list[Triple]:
   extractor = OpenIE5(host)
+  text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
   triples = extractor.extract(text)
   return triples
 
