@@ -6,7 +6,13 @@ from src.train import training
 
 
 def text(text: str) -> str:
-  triples = extract(text)
+  try:
+    triples = extract(text)
+  except Exception as e:
+    print(e)
+    return 'Too little information'
+  if len(triples) == 0:
+    return 'Too little information'
   top_triples = rank(triples)
   return abstract(top_triples)
 
@@ -17,7 +23,7 @@ def file(file: str) -> str:
 
 
 def train(*, model="bert-base-cased", data='yelp_review_full', output='train') -> str:
-  training(model, data)
+  training(model, data, output)
   return ''
 
 
