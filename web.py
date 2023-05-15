@@ -45,10 +45,10 @@ user_input = get_text()
 if user_input:
   output = query(user_input)
   st.session_state.past.append(user_input)
-  st.session_state.generated.append(output)
+  st.session_state.generated.append('Summary: ' + output)
 
 
 if st.session_state['generated']:
-  for i in range(len(st.session_state['generated'])-1, -1, -1):
+  for i, _ in enumerate(st.session_state['generated']):
     message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-    message(st.session_state["generated"][i], key=str(i))
+    message(st.session_state["generated"][i], key=str(i), seed=13)
