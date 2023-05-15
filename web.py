@@ -18,6 +18,15 @@ styl = f"""
       bottom: 3rem;
       z-index: 1;
     }}
+    .StatusWidget-enter-done{{
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }}
+    .StatusWidget-enter-done button{{
+      display: none;
+    }}
 </style>
 """
 st.markdown(styl, unsafe_allow_html=True)

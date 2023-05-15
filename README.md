@@ -10,6 +10,11 @@ pip install -r requirements-dev.lock
 # Install pytorch
 ```
 
+### `.env` Example
+```
+OPENIE_URL='http://localhost:8000'
+```
+
 ## Run CLI
 
 ```bash

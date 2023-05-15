@@ -1,16 +1,20 @@
 import fire
-from src.extract import extract,triple2sentence
+from os import getenv
+from dotenv import load_dotenv
+
+from src.extract import extract, triple2sentence
 from src.abstract import abstract
 from src.train import training
 from src.rank import rank
 
 
 def text(text: str) -> str:
+  load_dotenv()
   try:
-    triples = extract(text)
+    triples = extract(text, getenv('OPENIE_URL'))
   except Exception as e:
     print(e)
-    return 'Too little information'
+    return 'Error'
   if len(triples) == 0:
     return 'Too little information'
   top_triples = rank(triples)
