@@ -7,6 +7,7 @@
 ```bash
 python -m venv .venv
 pip install -r requirements-dev.lock
+python -m spacy download en_core_web_sm
 # Install pytorch
 ```
 
