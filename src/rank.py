@@ -27,32 +27,36 @@ def rank(triples: list[Triple], model='sentence-transformers/all-MiniLM-L6-v2') 
       top_triples.append(triples[i])
   return top_triples
 
+
 def cosine_similarity_sentences(original_text, extracted_sentence):
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform([original_text, extracted_sentence])
-    return cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:])[0][0]
+  vectorizer = TfidfVectorizer()
+  tfidf_matrix = vectorizer.fit_transform([original_text, extracted_sentence])
+  return cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:])[0][0]
+
 
 def cosine_similarity_relation_triples_list(original_text, extracted_relation_triples_list):
-    relation_similarities = []
-    for relation_triples in extracted_relation_triples_list:
-      relation_sentence = triple2sentence(relation_triples)
-      similarity = cosine_similarity_sentences(original_text, relation_sentence)
-      relation_similarities.append(similarity)
-    return relation_similarities
+  relation_similarities = []
+  for relation_triples in extracted_relation_triples_list:
+    relation_sentence = triple2sentence(relation_triples)
+    similarity = cosine_similarity_sentences(original_text, relation_sentence)
+    relation_similarities.append(similarity)
+  return relation_similarities
+
 
 def calculate_salient_scores(original_text, sentences, relation_triples_list, a):
-    scores = []
-    Sr_list_return = []
-    Ss_list_return = []
-    for sentence, relation_triples in zip(sentences, relation_triples_list):
-      Sr_list = cosine_similarity_relation_triples_list(original_text, relation_triples)
-      Ss = cosine_similarity_sentences(original_text, sentence)      
-      if(len(Sr_list) == 0):
-         St = a*Ss
-         Sr_list_return.append(["없음"])
-      else:
-         St = max(Sr_list) + a*Ss
-         Sr_list_return.append(relation_triples[Sr_list.index(max(Sr_list))])
-      Ss_list_return.append(sentence)
-      scores.append(St)
-    return scores,Ss_list_return,Sr_list_return
+  scores = []
+  Sr_list_return = []
+  Ss_list_return = []
+  for sentence, relation_triples in zip(sentences, relation_triples_list):
+    Sr_list = cosine_similarity_relation_triples_list(
+        original_text, relation_triples)
+    Ss = cosine_similarity_sentences(original_text, sentence)
+    if (len(Sr_list) == 0):
+      St = a*Ss
+      Sr_list_return.append(["없음"])
+    else:
+      St = max(Sr_list) + a*Ss
+      Sr_list_return.append(relation_triples[Sr_list.index(max(Sr_list))])
+    Ss_list_return.append(sentence)
+    scores.append(St)
+  return scores, Ss_list_return, Sr_list_return

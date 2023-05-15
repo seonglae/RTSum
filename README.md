@@ -1,5 +1,7 @@
 # SJYYJ
+
 ![img](img/gui.png)
+
 ## Get Started
 
 ```bash
