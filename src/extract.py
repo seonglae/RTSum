@@ -66,7 +66,8 @@ def doc2sentences(docstring: str, model="en_core_web_sm") -> list[str]:
   return [sent.text for sent in document.sents]
 
 
-async def write_article(output: str, document: str, d_i: int) -> None:
+def write_article(args: str) -> None:
+  [d_i, document, path] = args.split('\n')
   start = time()
   sentences = doc2sentences(document)
   output = ''
@@ -77,6 +78,6 @@ async def write_article(output: str, document: str, d_i: int) -> None:
       output += f'R\t{triple2sentence(triple)}\n'
     if len(triples) == 0:
       output += f'R\t{sentence}\n'
-  with open(output, 'a', encoding='UTF8') as triplenote:
+  with open(path, 'a', encoding='UTF8') as triplenote:
     triplenote.write(output)
-  print(f'Article {d_i + 1} Processed {(time() - start):.2f}sec')
+  print(f'Article {int(d_i) + 1} Processed {(time() - start):.2f}sec')
