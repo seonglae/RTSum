@@ -1,10 +1,11 @@
-from time import time
+from asyncio import wait
+from typing import Coroutine
 
 import fire
 
 from src.summary import summarize
 from src.train import training
-from src.extract import doc2sentences, extract_triple, triple2sentence
+from src.extract import write_article
 
 
 def text(text: str) -> str:
@@ -18,20 +19,12 @@ def file(path: str) -> str:
   return text(document)
 
 
-def exportarticle(path: str, output: str) -> None:
-  with open(output, 'w', encoding='UTF8') as triplenote:
-    with open(path, 'r', encoding='UTF8') as f:
-      for d_i, document in enumerate(f):
-        start = time()
-        sentences = doc2sentences(document)
-        for s_i, sentence in enumerate(sentences):
-          triplenote.write(f'S\t{d_i}\t{s_i}\t{sentence}\n')
-          triples = extract_triple(sentence)['triples']
-          for triple in triples:
-            triplenote.write(f'R\t{triple2sentence(triple)}\n')
-          if len(triples) == 0:
-            triplenote.write(f'R\t{sentence}\n')
-        print(f'Article {d_i + 1} Processed {(time() - start):.2f}sec')
+async def exportarticle(path: str, output: str) -> None:
+  with open(path, 'r', encoding='UTF8') as f:
+    routines: list[Coroutine] = []
+    for d_i, document in enumerate(f):
+      routines.append(write_article(output, document, d_i))
+    await wait(routines)
 
 
 def train(*, model="bert-base-cased", data='yelp_review_full', output='train') -> str:

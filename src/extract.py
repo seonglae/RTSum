@@ -1,9 +1,14 @@
 from __future__ import annotations
+from time import time
 from typing import TypedDict, Optional
-
-from pyopenie import OpenIE5
+from os import getenv
 from unicodedata import normalize
+
+from dotenv import load_dotenv
+from pyopenie import OpenIE5
 from spacy import load
+
+load_dotenv()
 
 
 class Argument(TypedDict):
@@ -34,7 +39,9 @@ class TripledSentence(TypedDict):
   score: float
 
 
-def extract_triple(text: str, host='http://localhost:8000') -> TripledSentence:
+def extract_triple(text: str, host=None) -> TripledSentence:
+  if host is None:
+    host = getenv('OPENIE_URL')
   sentence: TripledSentence = {'text': text, 'triples': [], 'score': 0}
   extractor = OpenIE5(host)
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
@@ -57,3 +64,19 @@ def doc2sentences(docstring: str, model="en_core_web_sm") -> list[str]:
   nlp = load(model)
   document = nlp(docstring)
   return [sent.text for sent in document.sents]
+
+
+async def write_article(output: str, document: str, d_i: int) -> None:
+  start = time()
+  sentences = doc2sentences(document)
+  output = ''
+  for s_i, sentence in enumerate(sentences):
+    output += f'S\t{d_i}\t{s_i}\t{sentence}\n'
+    triples = extract_triple(sentence)['triples']
+    for triple in triples:
+      output += f'R\t{triple2sentence(triple)}\n'
+    if len(triples) == 0:
+      output += f'R\t{sentence}\n'
+  with open(output, 'a', encoding='UTF8') as triplenote:
+    triplenote.write(output)
+  print(f'Article {d_i + 1} Processed {(time() - start):.2f}sec')
