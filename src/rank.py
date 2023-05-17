@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, List
 from sentence_transformers import SentenceTransformer, util
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -6,10 +6,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from src.extract import TripledSentence, triple2sentence, Triple
 
 
-def rank(tripled_sentences: list[TripledSentence], alpha=0.3, beta=0.6, model='sentence-transformers/all-MiniLM-L6-v2') -> Tuple[list[TripledSentence], list[Triple]]:
+def rank(tripled_sentences: List[TripledSentence], alpha=0.3, beta=0.6, model='sentence-transformers/all-MiniLM-L6-v2') -> Tuple[List[TripledSentence], List[Triple]]:
   # Compute Embeddings
   model = SentenceTransformer(model)
-  scores: list[float] = []
+  scores: List[float] = []
 
   # Compute Sentence Similarity
   sentences = list(
@@ -22,7 +22,7 @@ def rank(tripled_sentences: list[TripledSentence], alpha=0.3, beta=0.6, model='s
                                                         embeddings[j])
 
   # Compute Triple Similarity
-  triples: list[Triple] = []
+  triples: List[Triple] = []
   for tripled_sentence in tripled_sentences:
     triples += tripled_sentence['triples']
   triple_sentences = list(map(triple2sentence, triples))
