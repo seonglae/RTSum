@@ -3,6 +3,7 @@ from time import time
 from typing import TypedDict, Optional
 from os import getenv
 from unicodedata import normalize
+from re import sub
 
 from dotenv import load_dotenv
 from pyopenie import OpenIE5
@@ -49,6 +50,11 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   for triple in sentence['triples']:
     triple['score'] = 0
     triple['parent'] = sentence
+    extraction = triple['extraction']
+    extraction['arg1']['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', extraction['arg1']['text'])
+    extraction['rel']['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', extraction['rel']['text'])
+    for arg2 in extraction['arg2s']:
+      arg2['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', arg2['text'])
   return sentence
 
 
