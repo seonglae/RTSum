@@ -1,20 +1,13 @@
 import fire
-from src.extract import extract
-from src.rank import rank
-from src.abstract import abstract
+from os import getenv
+
+from src.summary import summarize
 from src.train import training
 
 
 def text(text: str) -> str:
-  try:
-    triples = extract(text)
-  except Exception as e:
-    print(e)
-    return 'Too little information'
-  if len(triples) == 0:
-    return 'Too little information'
-  top_triples = rank(triples)
-  return abstract(top_triples)
+  summary, sentences, triples = summarize(text)
+  return summary
 
 
 def file(file: str) -> str:

@@ -18,6 +18,15 @@ styl = f"""
       bottom: 3rem;
       z-index: 1;
     }}
+    .StatusWidget-enter-done{{
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }}
+    .StatusWidget-enter-done button{{
+      display: none;
+    }}
 </style>
 """
 st.markdown(styl, unsafe_allow_html=True)
@@ -45,10 +54,10 @@ user_input = get_text()
 if user_input:
   output = query(user_input)
   st.session_state.past.append(user_input)
-  st.session_state.generated.append(output)
+  st.session_state.generated.append('Summary: ' + output)
 
 
 if st.session_state['generated']:
-  for i in range(len(st.session_state['generated'])-1, -1, -1):
+  for i, _ in enumerate(st.session_state['generated']):
     message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-    message(st.session_state["generated"][i], key=str(i))
+    message(st.session_state["generated"][i], key=str(i), seed=13)
