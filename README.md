@@ -20,7 +20,9 @@ python -m spacy download en_core_web_sm
 - `src/summary.py` use `src/extract.py`, `src/rank.py` and `src/abstract.py`
 
 ### `.env` Example
+
 Running OpenIE server is needed for SJYYJ to work. You should make a `.env` file in the root
+
 ```bash
 OPENIE_URL='http://localhost:8000'
 ```
@@ -39,3 +41,9 @@ python main.py text 'I made arrangements pick up her dog'
 docker compose up
 streamlit run web.py
 ```
+
+## Convention
+
+- Typing - Mypy
+- Formatting - Autopep8
+- Linting - Pylint (recommended)

@@ -50,12 +50,18 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   for triple in sentence['triples']:
     triple['score'] = 0
     triple['parent'] = sentence
-    extraction = triple['extraction']
-    extraction['arg1']['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', extraction['arg1']['text'])
-    extraction['rel']['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', extraction['rel']['text'])
-    for arg2 in extraction['arg2s']:
-      arg2['text'] = sub(r"\((.*?)\)|\(|\)|\[|\]", r'', arg2['text'])
+    tune_triple(triple)
   return sentence
+
+
+def tune_triple(triple: Triple, pattern=r"\[|\]", repl=r"") -> None:
+  extraction = triple['extraction']
+  extraction['arg1']['text'] = sub(
+      pattern, repl, extraction['arg1']['text'])
+  extraction['rel']['text'] = sub(
+      pattern, repl, extraction['rel']['text'])
+  for arg2 in extraction['arg2s']:
+    arg2['text'] = sub(pattern, repl, arg2['text'])
 
 
 def triple2sentence(triple: Triple, arg2max: Optional[int] = None) -> str:
