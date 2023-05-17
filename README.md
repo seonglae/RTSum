@@ -39,3 +39,8 @@ python main.py text 'I made arrangements pick up her dog'
 docker compose up
 streamlit run web.py
 ```
+
+## Develop Experience
+- Formatter - `Autopep8`
+- Typing - `Mypy`
+- Linter - `Pylint` (recommended)
