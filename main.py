@@ -1,18 +1,32 @@
+from multiprocessing import Pool
+
 import fire
-from os import getenv
 
 from src.summary import summarize
 from src.train import training
+from src.extract import write_article
 
 
 def text(text: str) -> str:
-  summary, sentences, triples = summarize(text)
+  summary, _, _ = summarize(text)
   return summary
 
 
-def file(file: str) -> str:
-  document = open(file, 'r', encoding='UTF8').read()
+def file(path: str) -> str:
+  with open(path, 'r', encoding='UTF8') as f:
+    document = f.read()
   return text(document)
+
+
+async def exportarticle(path: str, output: str) -> None:
+  with open(path, 'r', encoding='UTF8') as f:
+    with Pool(20) as pool:
+      args: list[str] = []
+      for i, line in enumerate(f):
+        args.append(f'{i}\n{line.strip()}\n{output}')
+      pool.map(write_article, args)
+      pool.close()
+      pool.join()
 
 
 def train(*, model="bert-base-cased", data='yelp_review_full', output='train') -> str:
