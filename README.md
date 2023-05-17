@@ -42,8 +42,7 @@ docker compose up
 streamlit run web.py
 ```
 
-## Convention
-
-- Typing - Mypy
-- Formatting - Autopep8
-- Linting - Pylint (recommended)
+## Develop Experience
+- Formatter - `Autopep8`
+- Typing - `Mypy`
+- Linter - `Pylint` (recommended)

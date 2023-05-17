@@ -1,13 +1,13 @@
-from typing import Tuple
+from typing import Tuple, List
 
 from src.extract import extract_triple, TripledSentence, doc2sentences, Triple
 from src.abstract import abstract
 from src.rank import rank
 
 
-def summarize(text: str) -> Tuple[str, list[TripledSentence], list[Triple]]:
+def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   # Extract Sentences & Triples
-  tripled_sentences: list[TripledSentence] = []
+  tripled_sentences: List[TripledSentence] = []
   try:
     sentences = doc2sentences(text)
     for sentence in sentences:

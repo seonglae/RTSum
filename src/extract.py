@@ -1,6 +1,6 @@
 from __future__ import annotations
 from time import time
-from typing import TypedDict, Optional
+from typing import TypedDict, Optional, List
 from os import getenv
 from unicodedata import normalize
 from re import sub
@@ -89,7 +89,7 @@ def write_article(args: str) -> None:
     for triple in triples:
       output += f'R\t{triple2sentence(triple)}\n'
     if len(triples) == 0:
-      output += f'R\t{sentence}\n'
+      output += f'P\t{sentence}\n'
   with open(path, 'a', encoding='UTF8') as triplenote:
     triplenote.write(output)
   print(f'Article {int(d_i) + 1} Processed {(time() - start):.2f}sec')

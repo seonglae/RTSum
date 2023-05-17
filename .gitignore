@@ -9,3 +9,7 @@ wheels/
 # venv
 .venv
 .env
+
+# mypy
+.mypy_cache
+$

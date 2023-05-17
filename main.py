@@ -1,4 +1,6 @@
 from multiprocessing import Pool
+from typing import List, cast
+from os import cpu_count
 
 import fire
 
@@ -19,9 +21,10 @@ def file(path: str) -> str:
 
 
 async def exportarticle(path: str, output: str) -> None:
+  cpu = cast(int, cpu_count())
   with open(path, 'r', encoding='UTF8') as f:
-    with Pool(20) as pool:
-      args: list[str] = []
+    with Pool(int(cpu / 2)) as pool:
+      args: List[str] = []
       for i, line in enumerate(f):
         args.append(f'{i}\n{line.strip()}\n{output}')
       pool.map(write_article, args)
