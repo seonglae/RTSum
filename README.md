@@ -11,6 +11,13 @@ python -m spacy download en_core_web_sm
 # Install pytorch
 ```
 
+### Or using [rye](https://mitsuhiko.github.io/rye/) (recommended)
+```
+rye sync
+python -m spacy download en_core_web_sm
+```
+
+
 ## Source Code Structure
 
 `web.py` is for web gui, `main.py` is for cli.

@@ -43,6 +43,8 @@ class TripledSentence(TypedDict):
 def extract_triple(text: str, host=None) -> TripledSentence:
   if host is None:
     host = getenv('OPENIE_URL')
+  if host is None:
+    host = 'http://localhost:8000'
   sentence: TripledSentence = {'text': text, 'triples': [], 'score': 0}
   extractor = OpenIE5(host)
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
