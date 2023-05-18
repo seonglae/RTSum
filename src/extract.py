@@ -89,7 +89,7 @@ def write_article(args: str) -> None:
     output += f'S\t{d_i}\t{s_i}\t{sentence}\n'
     triples = extract_triple(sentence)['triples']
     for triple in triples:
-      output += f'R\t{triple2sentence(triple, None, '\t')}\n'
+      output += f'R\t{triple2sentence(triple, None, "\t")}\n'
     if len(triples) == 0:
       output += f'P\t{sentence}\n'
   with open(path, 'a', encoding='UTF8') as triplenote:
