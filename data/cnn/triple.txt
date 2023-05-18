@@ -1,0 +1,107 @@
+S	0	0	James Best, best known for his portrayal of bumbling sheriff Rosco P. Coltrane on TV's "The Dukes of Hazzard," died Monday after a brief illness.
+R	James Best died Monday after a brief illness.
+R	James Best best known for his portrayal of bumbling sheriff Rosco P. Coltrane on TV's "The Dukes of Hazzard.
+S	0	1	He was 88.
+R	He was 88.
+S	0	2	Best died in hospice in Hickory, North Carolina, of complications from pneumonia, said Steve Latshaw, a longtime friend and Hollywood colleague.
+R	Steve Latshaw is Hollywood colleague.
+R	Steve Latshaw is a longtime friend.
+R	Best died in hospice in Hickory of complications from pneumonia.
+R	Steve Latshaw said Best died in hospice in Hickory , North Carolina , of complications from pneumonia.
+S	0	3	Although he'd been a busy actor for decades in theater and in Hollywood, Best didn't become famous until 1979, when "The Dukes of Hazzard's" cornpone charms began beaming into millions of American homes almost every Friday night.
+R	The Dukes of Hazzard 's " cornpone charms began beaming into millions of American homes almost every Friday night.
+R	he 'd been a busy actor for decades in Hollywood.
+R	The Dukes of Hazzard 's " cornpone charms began beaming into millions of American homes almost every Friday night.
+R	The Dukes of Hazzard 's " cornpone charms began beaming into millions of American homes almost every Friday night.
+R	Best did n't become famous until 1979.
+R	he 'd been a busy actor for decades in theater.
+S	0	4	For seven seasons, Best's Rosco P. Coltrane chased the moonshine-running Duke boys back and forth across the back roads of fictitious Hazzard County, Georgia, although his "hot pursuit" usually ended with him crashing his patrol car.
+R	Best 's Rosco P. Coltrane chased forth across the back roads of fictitious Hazzard County For seven seasons.
+R	him crashing his patrol car.
+R	his " hot pursuit ended with him crashing his patrol car usually.
+R	Best 's Rosco P. Coltrane chased the moonshine - running Duke boys back across the back roads of fictitious Hazzard County For seven seasons.
+S	0	5	Although Rosco was slow-witted and corrupt, Best gave him a childlike enthusiasm that got laughs and made him endearing.
+R	Rosco was corrupt.
+R	a childlike enthusiasm got laughs.
+R	Best gave him a childlike enthusiasm that got laughs.
+R	Rosco was slow - witted.
+R	him endearing .
+R	Rosco made him endearing.
+S	0	6	His character became known for his distinctive "kew-kew-kew" chuckle and for goofy catchphrases such as "cuff 'em and stuff 'em!"
+R	His character known for goofy catchphrases such as " cuff ' stuff.
+R	His character became known for goofy catchphrases such as " cuff ' stuff.
+R	His character known for goofy catchphrases such as " cuff ' em.
+R	His character became known for goofy catchphrases such as " cuff ' em.
+R	His character known for his distinctive " kew - kew - kew " chuckle.
+R	His character became known for his distinctive " kew - kew - kew " chuckle.
+S	0	7	upon making an arrest.
+P	upon making an arrest.
+S	0	8	Among the most popular shows on TV in the early '80s, "The Dukes of Hazzard" ran until 1985 and spawned TV movies, an animated series and video games.
+R	The Dukes of Hazzard spawned TV movies Among the most popular shows on TV in the early '80s.
+R	The Dukes of Hazzard ran until 1985 Among the most popular shows on TV in the early '80s.
+S	0	9	Several of Best's "Hazzard" co-stars paid tribute to the late actor on social media.
+R	Several of Best's "Hazzard" co-stars paid tribute to the late actor on social media.
+S	0	10	"I laughed and learned more from Jimmie in one hour than from anyone else in a whole year," co-star John Schneider, who played Bo Duke, said on Twitter.
+R	co-star John Schneider said played Bo Duke.
+R	co-star John Schneider said on Twitter.
+R	co-star John Schneider said played Bo Duke.
+R	co-star John Schneider said on Twitter.
+R	I laughed co-star John Schneider , who played Bo Duke , said on Twitter.
+S	0	11	"Give Uncle Jesse my love when you see him dear friend."
+R	you see him dear friend.
+S	0	12	"Jimmy Best was the most constantly creative person I have ever known," said Ben Jones, who played mechanic Cooter on the show, in a Facebook post.
+R	Ben Jones played mechanic Cooter on the show in a Facebook post.
+R	Jimmy Best was the most constantly creative person I have ever known.
+R	Ben Jones said Jimmy Best was the most constantly creative person.
+R	the most constantly creative person have known ever.
+S	0	13	"Every minute of his long life was spent acting, writing, producing, painting, teaching, fishing, or involved in another of his life's many passions."
+R	Every minute of his long life was spent acting, writing, producing, painting, teaching, fishing, or involved in another of his life's many passions.
+S	0	14	Born Jewel Guy on July 26, 1926, in Powderly, Kentucky, Best was orphaned at 3 and adopted by Armen and Essa Best, who renamed him James and raised him in rural Indiana.
+R	Best was adopted by Essa Best.
+R	Best was adopted by Armen.
+R	Best was who renamed him James.
+R	Best was orphaned at 3.
+R	Best was orphaned at 3.
+S	0	15	Best served in the Army during World War II before launching his acting career.
+P	Best served in the Army during World War II before launching his acting career.
+S	0	16	In the 1950s and 1960s, he accumulated scores of credits, playing a range of colorful supporting characters in such TV shows as "The Twilight Zone," "Bonanza," "The Andy Griffith Show" and "Gunsmoke."
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " Gunsmoke.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " Gunsmoke In 1960 s.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as The Andy Griffith Show.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as The Andy Griffith Show In 1960 s.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " " Bonanza.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " " Bonanza In 1960 s.
+R	he accumulated scores of credits In 1960 s.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " Gunsmoke.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " Gunsmoke In the 1950 s.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as The Andy Griffith Show.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as The Andy Griffith Show In the 1950 s.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " " Bonanza.
+R	he accumulated scores of credits playing a range of colorful supporting characters in such TV shows as " " Bonanza In the 1950 s.
+R	playing a range of colorful supporting characters in such TV shows .
+R	he accumulated scores of credits In the 1950 s.
+S	0	17	He later appeared in a handful of Burt Reynolds' movies, including "Hooper" and "The End."
+R	He appeared in a handful of Burt Reynolds ' movies , including " The End later.
+R	He appeared in a handful of Burt Reynolds ' movies , including " Hooper later.
+S	0	18	But Best will always be best known for his "Hazzard" role, which lives on in reruns.
+R	his "Hazzard" role lives on in reruns.
+R	Best best known for his "Hazzard" role.
+R	Best will be best known for his "Hazzard" role always.
+S	0	19	"Jimmie was my teacher, mentor, close friend and collaborator for 26 years," Latshaw said.
+R	Jimmie was my collaborator for 26 years.
+R	Latshaw said Jimmie was my collaborator for 26 years.
+R	Jimmie was my close friend for 26 years.
+R	Latshaw said Jimmie was my close friend for 26 years.
+R	Jimmie was my mentor for 26 years.
+R	Latshaw said Jimmie was my mentor for 26 years.
+R	Jimmie was my teacher for 26 years.
+R	Latshaw said Jimmie was my teacher for 26 years.
+S	0	20	"I directed two of his feature films, including the recent 'Return of the Killer Shrews,' a sequel he co-wrote and was quite proud of as he had made the first one more than 50 years earlier."
+R	he had made the first one more than 50 years earlier.
+R	he was quite proud of as he had made the first one more than 50 years earlier.
+R	a sequel co-wrote he.
+R	I directed two of his feature films , including the recent ' Return of the Killer Shrews.
+S	0	21	People we've lost in 2015 .
+R	People 've lost in 2015.
+S	0	22	CNN's Stella Chan contributed to this story.
+R	CNN's Stella Chan contributed to this story.

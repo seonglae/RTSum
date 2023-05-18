@@ -66,11 +66,11 @@ def tune_triple(triple: Triple, pattern=r"\[|\]", repl=r"") -> None:
     arg2['text'] = sub(pattern, repl, arg2['text'])
 
 
-def triple2sentence(triple: Triple, arg2max: Optional[int] = None) -> str:
+def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = ' ') -> str:
   if arg2max is None:
     arg2max = len(triple['extraction']['arg2s'])
-  return triple['extraction']['arg1']['text'] + ' ' + triple['extraction']['rel']['text'] + ' ' + \
-      ' '.join(
+  return triple['extraction']['arg1']['text'] + glue + triple['extraction']['rel']['text'] + glue + \
+      glue.join(
       list(map(lambda arg2: arg2['text'], triple['extraction']['arg2s']))[:arg2max]) + '.'
 
 
@@ -89,7 +89,7 @@ def write_article(args: str) -> None:
     output += f'S\t{d_i}\t{s_i}\t{sentence}\n'
     triples = extract_triple(sentence)['triples']
     for triple in triples:
-      output += f'R\t{triple2sentence(triple)}\n'
+      output += f'R\t{triple2sentence(triple, None, '\t')}\n'
     if len(triples) == 0:
       output += f'P\t{sentence}\n'
   with open(path, 'a', encoding='UTF8') as triplenote:
