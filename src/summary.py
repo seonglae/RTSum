@@ -20,4 +20,4 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
 
   # Abstraction
   sentence_rank, triple_rank = rank(tripled_sentences)
-  return abstract(triple_rank), sentence_rank, triple_rank
+  return abstract(triple_rank, 'bert-base-uncased', 'gpu'), sentence_rank, triple_rank

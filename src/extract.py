@@ -50,7 +50,7 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
   try:
     sentence['triples'] = extractor.extract(text)
-  except Exception as e:
+  except Exception:
     sentence['triples'] = []
   for triple in sentence['triples']:
     triple['score'] = 0
