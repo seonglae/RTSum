@@ -1,7 +1,5 @@
 from typing import Tuple, List
 from sentence_transformers import SentenceTransformer, util
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 from src.extract import TripledSentence, triple2sentence, Triple
 

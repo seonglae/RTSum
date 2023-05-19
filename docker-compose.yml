@@ -1,5 +1,7 @@
 services:
   openie5:
     image: chengchingwen/openie
+    deploy:
+      replicas: 2
     ports:
-      - 8000:8000
+      - 8000-8001:8000
