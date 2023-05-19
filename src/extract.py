@@ -50,7 +50,7 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
   try:
     sentence['triples'] = extractor.extract(text)
-  except Exception as e:
+  except Exception:
     sentence['triples'] = []
   for triple in sentence['triples']:
     triple['score'] = 0
@@ -69,7 +69,7 @@ def tune_triple(triple: Triple, pattern=r"\[|\]", repl=r"") -> None:
     arg2['text'] = sub(pattern, repl, arg2['text'])
 
 
-def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = ' ', end: str = '.') -> str:
+def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = ' ', end: str = '') -> str:
   if arg2max is None:
     arg2max = len(triple['extraction']['arg2s'])
   return triple['extraction']['arg1']['text'] + glue + triple['extraction']['rel']['text'] + glue + \
@@ -93,8 +93,7 @@ def write_article(args: str) -> None:
     triples = extract_triple(sentence)['triples']
     for triple in triples:
       glue = '\t'
-      end = ''
-      output += f'R\t{triple2sentence(triple, None, glue, end)}\n'
+      output += f'R\t{triple2sentence(triple, None, glue)}\n'
     if len(triples) == 0:
       output += f'P\t{sentence}\n'
   with open(path, 'a', encoding='UTF8') as triplenote:
