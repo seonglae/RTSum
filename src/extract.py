@@ -1,6 +1,6 @@
 from __future__ import annotations
 from time import time
-from typing import TypedDict, Optional, List
+from typing import TypedDict, Optional
 from os import getenv
 from unicodedata import normalize
 from re import sub
@@ -48,7 +48,10 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   sentence: TripledSentence = {'text': text, 'triples': [], 'score': 0}
   extractor = OpenIE5(host)
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
-  sentence['triples'] = extractor.extract(text)
+  try:
+    sentence['triples'] = extractor.extract(text)
+  except Exception as e:
+    sentence['triples'] = []
   for triple in sentence['triples']:
     triple['score'] = 0
     triple['parent'] = sentence
@@ -66,12 +69,12 @@ def tune_triple(triple: Triple, pattern=r"\[|\]", repl=r"") -> None:
     arg2['text'] = sub(pattern, repl, arg2['text'])
 
 
-def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = ' ') -> str:
+def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = ' ', end: str = '.') -> str:
   if arg2max is None:
     arg2max = len(triple['extraction']['arg2s'])
   return triple['extraction']['arg1']['text'] + glue + triple['extraction']['rel']['text'] + glue + \
       glue.join(
-      list(map(lambda arg2: arg2['text'], triple['extraction']['arg2s']))[:arg2max]) + '.'
+      list(map(lambda arg2: arg2['text'], triple['extraction']['arg2s']))[:arg2max]) + end
 
 
 def doc2sentences(docstring: str, model="en_core_web_sm") -> list[str]:
@@ -90,7 +93,8 @@ def write_article(args: str) -> None:
     triples = extract_triple(sentence)['triples']
     for triple in triples:
       glue = '\t'
-      output += f'R\t{triple2sentence(triple, None, glue)}\n'
+      end = ''
+      output += f'R\t{triple2sentence(triple, None, glue, end)}\n'
     if len(triples) == 0:
       output += f'P\t{sentence}\n'
   with open(path, 'a', encoding='UTF8') as triplenote:

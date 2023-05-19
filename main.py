@@ -1,7 +1,3 @@
-from multiprocessing import Pool
-from typing import List, cast
-from os import cpu_count
-
 import fire
 
 from src.summary import summarize
@@ -20,22 +16,19 @@ def file(path: str) -> str:
   return text(document)
 
 
-async def exportarticle(path: str, output: str, start: int, end: int) -> None:
-  cpu = cast(int, cpu_count())
+def exportarticle(path: str, output: str, start: int, end: int) -> None:
   with open(path, 'r', encoding='UTF8') as f:
-    if start is None: start = 0
-    if end is None: end = len(f)
-    with Pool(int(cpu / 2)) as pool:
-      args: List[str] = []
-      for i, line in enumerate(f):
-        if int(i) < start: continue
-        elif start <= int(i) < end: 
-          args.append(f'{i}\n{line.strip()}\n{output}')
-        else: break
-      print(f"{len(args)} articles starting")
-      pool.map(write_article, args)
-      pool.close()
-      pool.join()
+    if start is None:
+      start = 0
+    if end is None:
+      end = len(f)
+    for i, line in enumerate(f):
+      if int(i) < start:
+        continue
+      if start <= int(i) < end:
+        write_article(f'{i}\n{line.strip()}\n{output}')
+      else:
+        break
 
 
 def train(*, model="bert-base-cased", data='yelp_review_full', output='train') -> str:
