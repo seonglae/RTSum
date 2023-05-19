@@ -8,8 +8,10 @@ TITLE = '세줄요약좀'
 
 st.set_page_config(page_title=TITLE)
 st.header(TITLE)
-st.markdown(
-    "### 영문 뉴스를 입력하면 요약해주는 AI입니다 [Source Code](https://github.com/sjyyj/sjyyj)")
+st.markdown('''
+### 영문 뉴스 복붙시 요약해주는 AI 챗봇입니다 ([CNN](https://edition.cnn.com/), [FoxNews](https://www.foxnews.com/)).
+일정  양 이상의 정보가 포함된 문장들을 적어야 제대로 작동합니다. (**한글 x**, [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
+''')
 
 styl = f"""
 <style>

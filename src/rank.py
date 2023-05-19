@@ -4,10 +4,11 @@ from sentence_transformers import SentenceTransformer, util
 from src.extract import TripledSentence, triple2sentence, Triple
 
 
-def rank(tripled_sentences: List[TripledSentence], alpha=0.3, beta=0.6, model='sentence-transformers/all-MiniLM-L6-v2') -> Tuple[List[TripledSentence], List[Triple]]:
+def rank(
+    tripled_sentences: List[TripledSentence], alpha=0.3, beta=0.6, model='sentence-transformers/all-MiniLM-L6-v2'
+) -> Tuple[List[TripledSentence], List[Triple]]:
   # Compute Embeddings
   model = SentenceTransformer(model)
-  scores: List[float] = []
 
   # Compute Sentence Similarity
   sentences = list(
@@ -23,6 +24,8 @@ def rank(tripled_sentences: List[TripledSentence], alpha=0.3, beta=0.6, model='s
   triples: List[Triple] = []
   for tripled_sentence in tripled_sentences:
     triples += tripled_sentence['triples']
+  if len(triples) == 0:
+    return (tripled_sentences, [])
   triple_sentences = list(map(triple2sentence, triples))
   embeddings = model.encode(triple_sentences, convert_to_tensor=True)
   for i, triple in enumerate(triples):

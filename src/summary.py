@@ -15,9 +15,9 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   except Exception as e:
     print(e)
     return 'Cannot extract summary', [], []
-  if len(tripled_sentences) == 0:
-    return 'Cannot extract summary', [], []
 
   # Abstraction
   sentence_rank, triple_rank = rank(tripled_sentences)
+  if len(triple_rank) == 0:
+    return text, [], []
   return abstract(triple_rank, 'Cynki/rtsum_abs_bart', 'cpu'), sentence_rank, triple_rank

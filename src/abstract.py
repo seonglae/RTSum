@@ -1,7 +1,7 @@
-from typing import List
+from typing import List, Optional
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
-from src.extract import Triple, triple2sentence
+from src.extract import Triple
 
 
 def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', device: str = "cpu") -> str:
@@ -12,10 +12,21 @@ def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', devic
                         tokenizer=tokenizer, device=device)
 
   # Make relation classes to a string
-  relations = '\t'.join(list(map(triple2sentence, triples[:5])))
+  relations = ''.join(list(map(tokenize_triple, triples[:3])))
   if len(relations.split()) == 0:
     return 'Cannot abstract triples'
 
   # Make a summarization
-  summary = summarizer(relations)[0]["summary_text"]
+  result = summarizer(relations)[0]
+  summary = result["summary_text"]
   return summary
+
+
+def tokenize_triple(
+        triple: Triple, arg2max: Optional[int] = None, sub='<subject>', rel='<predicate>', obj='<object>'
+) -> str:
+  if arg2max is None:
+    arg2max = len(triple['extraction']['arg2s'])
+  return sub + triple['extraction']['arg1']['text'] + rel + triple['extraction']['rel']['text'] + obj + \
+      ' '.join(
+      list(map(lambda arg2: arg2['text'], triple['extraction']['arg2s']))[:arg2max])
