@@ -1,7 +1,6 @@
 import fire
 
 from src.summary import summarize
-from src.train import training
 from src.extract import write_article
 
 
@@ -29,11 +28,6 @@ def exportarticle(path: str, output: str, start: int, end: int) -> None:
         write_article(f'{i}\n{line.strip()}\n{output}')
       else:
         break
-
-
-def train(*, model="bert-base-cased", data='yelp_review_full', output='train') -> str:
-  training(model, data, output)
-  return ''
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from src.extract import Triple, triple2sentence
 
 
-def abstract(triples: List[Triple], model_checkpoint: str = 'bert-base-uncased', device: str = "cpu") -> str:
+def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', device: str = "cpu") -> str:
   # Load Model & Summarization Pipeline
   tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
   model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint).to(device)
@@ -12,7 +12,7 @@ def abstract(triples: List[Triple], model_checkpoint: str = 'bert-base-uncased',
                         tokenizer=tokenizer, device=device)
 
   # Make relation classes to a string
-  relations = ' '.join(list(map(triple2sentence, triples)))
+  relations = '\t'.join(list(map(triple2sentence, triples[:5])))
   if len(relations.split()) == 0:
     return 'Cannot abstract triples'
 
