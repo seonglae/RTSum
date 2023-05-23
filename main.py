@@ -1,6 +1,6 @@
 import fire
 
-from src.summary import summarize
+from src.summary import summarize, summarize_test
 from src.extract import write_article
 
 
@@ -13,6 +13,25 @@ def file(path: str) -> str:
   with open(path, 'r', encoding='UTF8') as f:
     document = f.read()
   return text(document)
+
+
+def test(article_file: str, summary_file: str, start: int, end: int) -> None:
+  with open(article_file, 'r', encoding='UTF8') as articles:
+    with open(summary_file, 'r', encoding='UTF8') as summaries:
+      if start is None:
+        start = 0
+      if end is None:
+        end = len(articles)
+      gold_summaries = summaries.readlines()
+      for i, article in enumerate(articles):
+        if int(i) < start:
+          continue
+        if start <= int(i) < end:
+          target_lines = filter(lambda line: int(line.split('\t')[0]) == i, gold_summaries)
+          gold_summary = ' '.join([line.split('\t')[2].strip() for line in target_lines])
+          summarize_test(article, gold_summary)
+        else:
+          break
 
 
 def exportarticle(path: str, output: str, start: int, end: int) -> None:

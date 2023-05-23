@@ -1,4 +1,5 @@
 from typing import Tuple, List
+from rouge_score import rouge_scorer
 
 from src.extract import extract_triple, TripledSentence, doc2sentences, Triple
 from src.abstract import abstract
@@ -21,3 +22,10 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   if len(triple_rank) == 0:
     return text, [], []
   return abstract(triple_rank, 'Cynki/rtsum_abs_bart', 'cpu'), sentence_rank, triple_rank
+
+
+def summarize_test(article: str, gold_summary: str) -> None:
+  scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
+  model_summary, _, _ = summarize(article)
+  scores = scorer.score(model_summary, gold_summary)
+  print(f"Score: {scores} \nPredict: {model_summary} \nGold: {gold_summary}")
