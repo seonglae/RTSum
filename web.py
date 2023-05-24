@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_chat import message
-from main import text
+from src.summary import summarize
 
 
 TITLE = '세줄요약좀'
@@ -41,7 +41,7 @@ if 'past' not in st.session_state:
 
 
 def query(input):
-  response = text(input)
+  response, sentences, triples = summarize(input)
   return response
 
 
