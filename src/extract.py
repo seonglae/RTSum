@@ -40,7 +40,7 @@ class TripledSentence(TypedDict):
   score: float
 
 
-def extract_triple(text: str, host=None) -> TripledSentence:
+def extract_triple(text: str, host=None, threshold=0.0) -> TripledSentence:
   if host is None:
     host = getenv('OPENIE_URL')
   if host is None:
@@ -50,6 +50,11 @@ def extract_triple(text: str, host=None) -> TripledSentence:
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
   try:
     sentence['triples'] = extractor.extract(text)
+    filtered = []
+    for triple in sentence['triples']:
+      if triple['confidence'] >= threshold:
+        filtered.append(triple)
+    sentence['triples'] = filtered
   except Exception:
     sentence['triples'] = []
   for triple in sentence['triples']:
