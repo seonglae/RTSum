@@ -12,7 +12,7 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   try:
     sentences = doc2sentences(text)
     for sentence in sentences:
-      tripled_sentences.append(extract_triple(sentence))
+      tripled_sentences.append(extract_triple(sentence, None, 0.7))
   except Exception as e:
     print(e)
     return 'Cannot extract summary', [], []
@@ -24,8 +24,15 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   return abstract(triple_rank, 'Cynki/rtsum_abs_bart', 'cpu'), sentence_rank, triple_rank
 
 
-def summarize_test(article: str, gold_summary: str) -> None:
-  scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
+def summarize_test(article: str, gold_summary: str):
+  scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
   model_summary, _, _ = summarize(article)
   scores = scorer.score(model_summary, gold_summary)
-  print(f"Score: {scores} \nPredict: {model_summary} \nGold: {gold_summary}")
+  print(f"""
+Rouge-1: {scores['rouge1'].fmeasure}
+Rouge-2: {scores['rouge2'].fmeasure}
+Rouge-L: {scores['rougeL'].fmeasure}
+Predict: {model_summary}
+Gold: {gold_summary}
+""")
+  return scores
