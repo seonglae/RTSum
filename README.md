@@ -1,6 +1,6 @@
 # SJYYJ
 
-![img](img/gui.png)
+![img](img/en.png)
 
 ## Get Started
 
@@ -12,11 +12,11 @@ python -m spacy download en_core_web_sm
 ```
 
 ### Or using [rye](https://mitsuhiko.github.io/rye/) (recommended)
+
 ```
 rye sync
 python -m spacy download en_core_web_sm
 ```
-
 
 ## Source Code Structure
 
@@ -50,6 +50,7 @@ streamlit run web.py
 ```
 
 ## Develop Experience
+
 - Formatter - `Autopep8`
 - Typing - `Mypy`
 - Linter - `Pylint` (recommended)

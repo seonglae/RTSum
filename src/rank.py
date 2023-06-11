@@ -5,7 +5,7 @@ from src.extract import TripledSentence, triple2sentence, Triple
 
 
 def rank(
-    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.6, model='sentence-transformers/all-MiniLM-L6-v2'
+    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.15, model='sentence-transformers/all-MiniLM-L6-v2'
 ) -> Tuple[List[TripledSentence], List[Triple]]:
   # Compute Embeddings
   model = SentenceTransformer(model)
@@ -39,5 +39,5 @@ def rank(
         triple['parent']['score'] + beta * triple['score']
   triples.sort(key=lambda triple: triple['score'], reverse=True)
   tripled_sentences.sort(
-      key=lambda tripled_sentence: tripled_sentence['score'])
+      key=lambda tripled_sentence: tripled_sentence['score'], reverse=True)
   return (tripled_sentences, triples)

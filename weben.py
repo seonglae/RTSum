@@ -3,15 +3,14 @@ from streamlit_chat import message
 from src.summary import summarize
 
 
-TITLE = '세줄요약좀'
+TITLE = 'Three-line Summary'
 
 
 st.set_page_config(page_title=TITLE)
 st.header(TITLE)
 st.markdown('''
-### <span style="color: #ffaaaa">영문</span> 뉴스 복붙시 요약합니다 ([CNN](https://edition.cnn.com/), [FoxNews](https://www.foxnews.com/)).
-세줄요약좀은 세줄 이상의 정보가 필요합니다. ([사용영상](https://www.youtube.com/watch?v=fwk1Q-V5cro&t=350s), [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
-([English Demo](http://sjyyj.seongland.com:8502/))
+### Copy & Paste ([CNN](https://edition.cnn.com/), [FoxNews](https://www.foxnews.com/)).
+A three-line summary requires more than three lines of information. ([Usage Video](https://www.youtube.com/watch?v=fwk1Q-V5cro&t=350s), [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
 ''', unsafe_allow_html=True)
 
 styl = f"""

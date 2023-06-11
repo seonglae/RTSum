@@ -15,7 +15,7 @@ def file(path: str) -> str:
   return text(document)
 
 
-def test(article_file: str, summary_file: str, start: int, end: int) -> str:
+def test(article_file: str, summary_file: str, start: int, end: int) -> None:
   with open(article_file, 'r', encoding='UTF8') as articles:
     with open(summary_file, 'r', encoding='UTF8') as summaries:
       if start is None:
@@ -38,13 +38,12 @@ def test(article_file: str, summary_file: str, start: int, end: int) -> str:
           mean_rouge1 += score['rouge1'].fmeasure
           mean_rouge2 += score['rouge2'].fmeasure
           mean_rouge_l += score['rougeL'].fmeasure
+          print(f"""Mean
+Rouge-1: {mean_rouge1 / (1 + int(i) - start)}
+Rouge-2: {mean_rouge2 / (1 + int(i) - start)}
+Rouge-L: {mean_rouge_l / (1 + int(i) - start)}""")
         else:
           break
-      return f"""Results
-      Rouge-1: {mean_rouge1 / (end - start)}
-      Rouge-2: {mean_rouge2 / (end - start)}
-      Rouge-L: {mean_rouge_l / (end - start)}
-      """
 
 
 def exportarticle(path: str, output: str, start: int, end: int) -> None:
