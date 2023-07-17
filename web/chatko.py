@@ -14,22 +14,22 @@ st.markdown('''
 ([English Demo](http://sjyyj.seongland.com:8502/))
 ''', unsafe_allow_html=True)
 
-styl = f"""
+styl = """
 <style>
-    .stTextInput {{
+    .stTextInput {
       position: fixed;
       bottom: 3rem;
       z-index: 1;
-    }}
-    .StatusWidget-enter-done{{
+    }
+    .StatusWidget-enter-done{
       position: fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-    }}
-    .StatusWidget-enter-done button{{
+    }
+    .StatusWidget-enter-done button{
       display: none;
-    }}
+    }
 </style>
 """
 st.markdown(styl, unsafe_allow_html=True)
@@ -41,8 +41,8 @@ if 'past' not in st.session_state:
   st.session_state['past'] = []
 
 
-def query(input):
-  response, sentences, triples = summarize(input)
+def query(article):
+  response, _, _ = summarize(article)
   return response
 
 

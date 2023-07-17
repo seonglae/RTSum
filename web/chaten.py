@@ -13,22 +13,22 @@ st.markdown('''
 A three-line summary requires more than three lines of information. ([Usage Video](https://www.youtube.com/watch?v=fwk1Q-V5cro&t=350s), [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
 ''', unsafe_allow_html=True)
 
-styl = f"""
+styl = """
 <style>
-    .stTextInput {{
+    .stTextInput {
       position: fixed;
       bottom: 3rem;
       z-index: 1;
-    }}
-    .StatusWidget-enter-done{{
+    }
+    .StatusWidget-enter-done{
       position: fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-    }}
-    .StatusWidget-enter-done button{{
+    }
+    .StatusWidget-enter-done button{
       display: none;
-    }}
+    }
 </style>
 """
 st.markdown(styl, unsafe_allow_html=True)
@@ -40,8 +40,8 @@ if 'past' not in st.session_state:
   st.session_state['past'] = []
 
 
-def query(input):
-  response, sentences, triples = summarize(input)
+def query(article):
+  response, _, _ = summarize(article)
   return response
 
 
