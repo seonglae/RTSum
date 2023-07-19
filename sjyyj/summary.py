@@ -2,9 +2,9 @@ from typing import Tuple, List
 from re import sub
 from rouge_score import rouge_scorer
 
-from src.extract import extract_triple, TripledSentence, doc2sentences, Triple
-from src.abstract import abstract
-from src.rank import rank
+from sjyyj.extract import extract_triple, TripledSentence, doc2sentences, Triple
+from sjyyj.abstract import abstract
+from sjyyj.rank import rank
 
 
 def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:

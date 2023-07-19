@@ -1,11 +1,11 @@
 from typing import Tuple, List
 from sentence_transformers import SentenceTransformer, util
 
-from src.extract import TripledSentence, triple2sentence, Triple
+from sjyyj.extract import TripledSentence, triple2sentence, Triple
 
 
 def rank(
-    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.15, model='sentence-transformers/all-MiniLM-L6-v2'
+    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.15, model='hkunlp/instructor-xl'
 ) -> Tuple[List[TripledSentence], List[Triple]]:
   # Compute Embeddings
   model = SentenceTransformer(model)

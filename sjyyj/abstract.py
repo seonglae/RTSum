@@ -1,7 +1,7 @@
 from typing import List, Optional
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
-from src.extract import Triple, triple2sentence
+from sjyyj.extract import Triple, triple2sentence
 
 
 def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', device: str = "cpu") -> str:

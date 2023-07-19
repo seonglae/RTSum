@@ -1,7 +1,8 @@
 import fire
 
-from src.summary import summarize, summarize_test
-from src.extract import write_article
+from sjyyj.summary import summarize, summarize_test
+from sjyyj.extract import write_article
+from sjyyj.dataset import extract2autotrain
 
 
 def text(text: str) -> str:
@@ -59,6 +60,10 @@ def exportarticle(path: str, output: str, start: int, end: int) -> None:
         write_article(f'{i}\n{line.strip()}\n{output}')
       else:
         break
+
+
+def pushdata(path='data/cnn_dailymail/test/triple.txt', output='autotrain.csv') -> None:
+  extract2autotrain(path, output)
 
 
 if __name__ == '__main__':
