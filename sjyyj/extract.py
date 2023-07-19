@@ -83,8 +83,8 @@ def triple2sentence(triple: Triple, arg2max: Optional[int] = None, glue: str = '
 
 
 def doc2sentences(docstring: str, model="en_core_web_sm") -> list[str]:
-  nlp = load(model)
-  document = nlp(docstring)
+  splitter = load(model)
+  document = splitter(docstring)
   return [sent.text for sent in document.sents]
 
 

@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from sjyyj.extract import Triple, triple2sentence
 
 
-def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', device: str = "cpu") -> str:
+def abstract(triples: List[Triple], model_checkpoint: str = 'sjyyj/sjyyj', device: str | int = "cpu") -> str:
   # Load Model & Summarization Pipeline
   tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
   model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint).to(device)

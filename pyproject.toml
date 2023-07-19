@@ -44,3 +44,8 @@ intent-size = 2
 [tool.mypy]
 ignore_missing_imports = true
 explicit_package_bases = true
+
+[[tool.rye.sources]]
+name = "cuda"
+url = "https://download.pytorch.org/whl/cu118"
+type = "index"
