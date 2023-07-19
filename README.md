@@ -1,6 +1,10 @@
 # SJYYJ
 
+AI summarization algorithm which can **highlight the important part** of the article.
+
 ![img](img/en.png)
+
+It decompose sentences into triple and decomposing sentences into smaller units and recomposing them with the most important information. We integrated the concept of **Knowledge Graph and Relation triple** into summarization AI by **combining extractive summarization and abstractive summarization**.
 
 ## Get Started
 
@@ -25,7 +29,7 @@ Running OpenIE server is needed for SJYYJ to work. You should make a `.env` file
 OpenIE server requires around 10GB of RAM to run.
 
 ```zsh
-export OPENIE_URL='http://localhost:8000'
+OPENIE_URL='http://localhost:8000'
 ```
 
 ## Run CLI
@@ -41,7 +45,6 @@ python main.py text 'I made arrangements pick up her dog'
 ```bash
 docker compose up
 streamlit run web/simple.py
-# or web/chaten.py web/chatko.py
 ```
 
 ## Develop Experience
