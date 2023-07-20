@@ -3,6 +3,7 @@ import fire
 from sjyyj.summary import summarize, summarize_test
 from sjyyj.extract import write_article
 from sjyyj.dataset import extract2autotrain
+from sjyyj.train import training
 
 
 def text(text: str) -> str:
@@ -60,6 +61,11 @@ def exportarticle(path: str, output: str, start: int, end: int) -> None:
         write_article(f'{i}\n{line.strip()}\n{output}')
       else:
         break
+
+
+def train(checkpoint='facebook/bart-large-cnn', owner='sjyyj', push=False,
+          output='sentencification', dataset_id="sjyyj/autotrain-data-sjyyj"):
+  training(checkpoint, owner, push, output, dataset_id)
 
 
 def pushdata(path='data/cnn_dailymail/test/triple.txt', output='autotrain.csv') -> None:
