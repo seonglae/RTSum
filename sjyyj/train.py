@@ -1,4 +1,4 @@
-from datasets import load_dataset, splits
+from datasets import load_dataset, splits, Dataset
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from transformers import Seq2SeqTrainingArguments, Seq2SeqTrainer, DataCollatorForSeq2Seq
 import numpy as np
@@ -36,6 +36,7 @@ def metric_function(tokenizer, metric):
 def training(checkpoint, owner, push, output, dataset_id):
   # Load model
   tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+  tokenizer.add_tokens(['<subject>', '<predicate>', '<object>'])
 
   # Load dataset
   dataset = load_dataset(dataset_id, split='train')
@@ -51,8 +52,8 @@ def training(checkpoint, owner, push, output, dataset_id):
       output_dir=output,
       evaluation_strategy="epoch",
       learning_rate=2e-5,
-      per_device_train_batch_size=16,
-      per_device_eval_batch_size=16,
+      per_device_train_batch_size=8,
+      per_device_eval_batch_size=8,
       weight_decay=0.01,
       save_total_limit=3,
       num_train_epochs=4,
