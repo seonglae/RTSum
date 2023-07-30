@@ -4,9 +4,8 @@ from difflib import SequenceMatcher
 import streamlit as st
 import torch
 
-from transformers import T5Tokenizer, T5ForConditionalGeneration
-from src.summary import summarize
-from src.extract import triple2sentence
+from sjyyj.summary import summarize
+from sjyyj.extract import triple2sentence
 
 
 TITLE = 'Three-line Summary'
@@ -47,19 +46,33 @@ def get_similar_part(source, similar):
 
 if article:
   print(f"Input: {article}")
-  response, _, triples = summarize(article)
+  response, sentences, triples = summarize(article)
   html_article = article
+
+  for sentence in sentences:
+    match = get_similar_part(article, sentence["text"])
+
+    if match:
+      hexscore = hex(int(100 / sentences[0]["score"] * sentence["score"]))[2:]
+      background = f"background: #3366bb{hexscore}"
+
+      border = "border-radius: 5px"
+      html_sentence = sentence["text"].replace(
+          match, f"<span style='{border}; {background}'>{match}</span>")
+      html_article = html_article.replace(sentence["text"], html_sentence)
+
   for triple in triples:
     if len(triple['extraction']['arg2s']) > 0:
       knowledge = triple2sentence(triple)
       article_sentence = get_similar_part(article, triple["sentence"])
 
-      hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
       match = get_similar_part(article_sentence, knowledge)
 
       if match:
-        border = "border-radius: 5px"
+        hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
         background = f"background: #bb3344{hexscore}"
+
+        border = "border-radius: 5px"
         html_sentence = article_sentence.replace(
             match, f"<span style='{border}; {background}'>{match}</span>")
         html_article = html_article.replace(article_sentence, html_sentence)
