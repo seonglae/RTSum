@@ -28,6 +28,7 @@ class Extraction(TypedDict):
 
 class Triple(TypedDict):
   confidence: float
+  # triple sentence has different value with tripled sentence because of ascii processing
   sentence: str
   extraction: Extraction
   score: float

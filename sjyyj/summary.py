@@ -22,7 +22,7 @@ def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]]:
   sentence_rank, triple_rank = rank(tripled_sentences)
   if len(triple_rank) == 0:
     return text, [], []
-  return abstract(triple_rank, 'Cynki/rtsum_abs_bart', 0), sentence_rank, triple_rank
+  return abstract(triple_rank, 'sjyyj/sjyyj', 0), sentence_rank, triple_rank
 
 
 def summarize_test(article: str, gold_summary: str):

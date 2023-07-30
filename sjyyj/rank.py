@@ -5,7 +5,7 @@ from sjyyj.extract import TripledSentence, triple2sentence, Triple
 
 
 def rank(
-    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.15, model='hkunlp/instructor-xl'
+    tripled_sentences: List[TripledSentence], alpha=0.6, beta=0.15, model='thenlper/gte-large'
 ) -> Tuple[List[TripledSentence], List[Triple]]:
   # Compute Embeddings
   model = SentenceTransformer(model)
@@ -18,7 +18,7 @@ def rank(
     # Diagonal Slice
     for j, _ in enumerate(tripled_sentences[i:]):
       tripled_sentence['score'] += float(util.pytorch_cos_sim(embeddings[i],
-                                                        embeddings[j]))
+                                                              embeddings[j]))
 
   # Compute Triple Similarity
   triples: List[Triple] = []
@@ -31,13 +31,16 @@ def rank(
   for i, triple in enumerate(triples):
     for j, _ in enumerate(triples[i:]):
       triple['score'] += float(util.pytorch_cos_sim(embeddings[i],
-                                              embeddings[j]))
+                                                    embeddings[j]))
 
   # Compute Final Triple Score
   for triple in triples:
     triple['score'] = alpha * \
         triple['parent']['score'] + beta * triple['score']
   triples.sort(key=lambda triple: triple['score'], reverse=True)
-  tripled_sentences.sort(
-      key=lambda tripled_sentence: tripled_sentence['score'], reverse=True)
+  tripled_sentences.sort(key=lambda sentence: sentence['score'], reverse=True)
+
+  if triple_sentences[0] in triple_sentences[1]:
+    triple_sentences = triple_sentences[1:]
+    triples = triples[1:]
   return (tripled_sentences, triples)
