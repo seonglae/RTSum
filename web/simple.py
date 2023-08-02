@@ -45,20 +45,44 @@ def get_similar_part(source, similar):
 
 async def main(article):
   print(f"Input: {article}")
-  response, sentences, triples = await summarize(article)
+
+  # Check Cache
+  if article in st.session_state:
+    print("Cache hit!")
+    response, sentences, triples = st.session_state[article]
+  else:
+    response, sentences, triples = await summarize(article)
+  st.session_state[article] = (response, sentences, triples)
+
+  # Summary
+  st.write("## Summary")
+  st.markdown(
+      f"<h6 style='padding: 0'>{response}</h6><hr style='margin: 1em 0px'>", unsafe_allow_html=True)
+
+  # Highlight
+  st.write("### Highlight")
+  emphasis_sentence = st.checkbox("Sentence", False)
+  col1, col2, col3, col4, col5 = st.columns(5)
+  emphasis_triple = col1.checkbox("Triple", True)
+  emphasis_subject = col2.checkbox("Subject", emphasis_triple)
+  emphasis_pred = col3.checkbox("Predicate", emphasis_triple)
+  emphasis_object = col4.checkbox("Object", emphasis_triple)
+  emphasis_adverbs = col5.checkbox("Adverbs", emphasis_triple)
+
   html_article = article
+  if emphasis_sentence:
+    for sentence in sentences:
+      match = get_similar_part(article, sentence["text"])
 
-  for sentence in sentences:
-    match = get_similar_part(article, sentence["text"])
+      if match:
+        hexscore = hex(
+            int(100 / sentences[0]["score"] * sentence["score"]))[2:]
+        background = f"background: #3366bb{hexscore}; padding: 0 2px"
 
-    if match:
-      hexscore = hex(int(100 / sentences[0]["score"] * sentence["score"]))[2:]
-      background = f"background: #3366bb{hexscore}"
-
-      border = "border-radius: 5px"
-      html_sentence = sentence["text"].replace(
-          match, f"<span style='{border}; {background}'>{match}</span>")
-      html_article = html_article.replace(sentence["text"], html_sentence)
+        border = "border-radius: 5px"
+        html_sentence = sentence["text"].replace(
+            match, f"<span style='{border}; {background}'>{match}</span>")
+        html_article = html_article.replace(sentence["text"], html_sentence)
 
   for triple in triples:
     if len(triple['extraction']['arg2s']) > 0:
@@ -69,17 +93,35 @@ async def main(article):
 
       if match:
         hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
-        background = f"background: #bb3344{hexscore}"
+        background = f"background: #bb3344{hexscore}; padding: 0 2px"
+        color = f"color: white"
+        subcolor = f"background: #bbee00"
+        border = "border-radius: 3px"
+        smallborder = "border-radius: 2px"
+        position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
+        size = "font-size: 3px"
 
-        border = "border-radius: 5px"
-        html_sentence = article_sentence.replace(
-            match, f"<span style='{border}; {background}'>{match}</span>")
-        html_article = html_article.replace(article_sentence, html_sentence)
+        html_match = match
+        if emphasis_subject:
+          submatch = get_similar_part(
+              match, triple["extraction"]["arg1"]["text"])
+          html_match = html_match.replace(
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>S</span>")
+        if emphasis_pred:
+          submatch = get_similar_part(
+              match, triple["extraction"]["rel"]["text"])
+          html_match = html_match.replace(
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>P</span>")
+        if emphasis_object:
+          submatch = get_similar_part(
+              match, triple["extraction"]["arg2s"][0]["text"])
+          html_match = html_match.replace(
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>O</span>")
 
-  st.write("## Summary")
-  st.markdown(
-      f"<h6 style='padding: 0'>{response}</h6>" +
-      f"<hr style='margin: 1em 0px'>{html_article}", unsafe_allow_html=True)
+        if emphasis_subject or emphasis_pred or emphasis_object or emphasis_adverbs:
+          html_article = html_article.replace(match, html_match)
+
+  st.write(f"{html_article}", unsafe_allow_html=True)
 
 
 if article:
