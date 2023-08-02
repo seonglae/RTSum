@@ -17,7 +17,7 @@ async def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]
     tripled_sentences = await asyncio.gather(
         *[extract_triple(sentence, 0.7) for sentence in sentences]
     )
-    print(f"Split takes time {time() - start} secs")
+    print(f"Split takes time {time() - start} secs\n")
   except Exception as e:
     print(e)
     return 'Cannot extract summary', [], []
@@ -25,14 +25,14 @@ async def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]
   # Abstraction
   start = time()
   sentence_rank, triple_rank = rank(tripled_sentences)
-  print(f"Rank takes time {time() - start} secs")
+  print(f"Rank takes time {time() - start} secs\n")
   if len(triple_rank) == 0:
     return text, [], []
 
   start = time()
   abstraction = abstract(triple_rank, 'sjyyj/sjyyj',
                          0), sentence_rank, triple_rank
-  print(f"Abstraction takes time {time() - start} secs")
+  print(f"Abstraction takes time {time() - start} secs\n")
   return abstraction
 
 

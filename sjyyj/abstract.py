@@ -32,9 +32,11 @@ def abstract(triples: List[Triple], model_checkpoint: str, device: str | int = "
     if matcher.ratio() > 0.8:
       top_triples = triples[:7]
 
+    print()
     for triple in top_triples:
       print(
           f"Score:{triple['score']}, Confidence: {triple['confidence']} - {triple2sentence(triple)}")
+    print()
   except IndexError:
     return 'There is not enough information to make a summary.'
 
