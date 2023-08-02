@@ -1,7 +1,13 @@
+version: '3.7'
+
 services:
   openie5:
     image: chengchingwen/openie
-    deploy:
-      replicas: 1
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    restart: always
     ports:
-      - 8000:8000
+      - "8000:8000"

@@ -35,7 +35,7 @@ OPENIE_URL='http://localhost:8000'
 ## Run CLI
 
 ```bash
-docker compose up
+docker-compose up --scale openie5=4
 python main.py file 'data/cnn/article.txt'
 python main.py text 'I made arrangements pick up her dog'
 ```
