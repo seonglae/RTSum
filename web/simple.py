@@ -95,6 +95,7 @@ async def main(article):
         hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
         background = f"background: #bb3344{hexscore}; padding: 0 2px"
         color = f"color: white"
+        black = f"color: black"
         subcolor = f"background: #bbee00"
         border = "border-radius: 3px"
         smallborder = "border-radius: 2px"
@@ -106,17 +107,17 @@ async def main(article):
           submatch = get_similar_part(
               match, triple["extraction"]["arg1"]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>S</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>S</span>")
         if emphasis_pred:
           submatch = get_similar_part(
               match, triple["extraction"]["rel"]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>P</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>P</span>")
         if emphasis_object:
           submatch = get_similar_part(
               match, triple["extraction"]["arg2s"][0]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {subcolor}; {smallborder}; {position}'>O</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>O</span>")
 
         if emphasis_subject or emphasis_pred or emphasis_object or emphasis_adverbs:
           html_article = html_article.replace(match, html_match)
