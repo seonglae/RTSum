@@ -1,8 +1,7 @@
-import re
 from difflib import SequenceMatcher
+import asyncio
 
 import streamlit as st
-import torch
 
 from sjyyj.summary import summarize
 from sjyyj.extract import triple2sentence
@@ -44,9 +43,9 @@ def get_similar_part(source, similar):
   return None
 
 
-if article:
+async def main(article):
   print(f"Input: {article}")
-  response, sentences, triples = summarize(article)
+  response, sentences, triples = await summarize(article)
   html_article = article
 
   for sentence in sentences:
@@ -81,3 +80,8 @@ if article:
   st.markdown(
       f"<h6 style='padding: 0'>{response}</h6>" +
       f"<hr style='margin: 1em 0px'>{html_article}", unsafe_allow_html=True)
+
+
+if article:
+  loop = asyncio.new_event_loop()
+  loop.run_until_complete(main(article))

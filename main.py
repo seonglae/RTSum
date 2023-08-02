@@ -6,15 +6,15 @@ from sjyyj.dataset import extract2autotrain
 from sjyyj.train import training
 
 
-def text(text: str) -> str:
-  summary, _, _ = summarize(text)
+async def text(text: str) -> str:
+  summary, _, _ = await summarize(text)
   return summary
 
 
-def file(path: str) -> str:
+async def file(path: str) -> str:
   with open(path, 'r', encoding='UTF8') as f:
     document = f.read()
-  return text(document)
+  return await text(document)
 
 
 def test(article_file: str, summary_file: str, start: int, end: int) -> None:

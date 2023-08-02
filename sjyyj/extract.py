@@ -4,12 +4,16 @@ from typing import TypedDict, Optional
 from os import getenv
 from unicodedata import normalize
 from re import sub
+import aiohttp
 
 from dotenv import load_dotenv
-from pyopenie import OpenIE5
 from spacy import load
 
+from sjyyj.openie import OpenIE5
+
 load_dotenv()
+extractor = OpenIE5('http://localhost:8000' if getenv('OPENIE_URL')
+                    is None else getenv('OPENIE_URL'))
 
 
 class Argument(TypedDict):
@@ -41,16 +45,12 @@ class TripledSentence(TypedDict):
   score: float
 
 
-def extract_triple(text: str, host=None, threshold=0.0) -> TripledSentence:
-  if host is None:
-    host = getenv('OPENIE_URL')
-  if host is None:
-    host = 'http://localhost:8000'
+async def extract_triple(text: str, threshold=0.0) -> TripledSentence:
   sentence: TripledSentence = {'text': text, 'triples': [], 'score': 0}
-  extractor = OpenIE5(host)
   text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
   try:
-    sentence['triples'] = extractor.extract(text)
+    async with aiohttp.ClientSession() as session:
+      sentence['triples'] = await extractor.extract(text, session)
     filtered = []
     for triple in sentence['triples']:
       if triple['confidence'] >= threshold:
