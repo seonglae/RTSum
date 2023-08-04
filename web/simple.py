@@ -39,18 +39,17 @@ def get_similar_part(source, similar):
   matcher = SequenceMatcher(None, source, similar)
   matches = matcher.get_matching_blocks()
   if len(matches) > 1:
-    return source[matches[0].a:matches[-2].a + matches[-2].size]
+    return source[matches[0].a:matches[-2].a + matches[-2].size].strip()
   return None
 
 
 async def main(article):
-  print(f"Input: {article}")
-
   # Check Cache
   if article in st.session_state:
     print("Cache hit!")
     response, sentences, triples = st.session_state[article]
   else:
+    print(f"Input: {article}")
     response, sentences, triples = await summarize(article)
   st.session_state[article] = (response, sentences, triples)
 
@@ -61,35 +60,45 @@ async def main(article):
 
   # Highlight
   st.write("### Highlight")
-  emphasis_sentence = st.checkbox("Sentence", False)
+  emphasis_sentence = st.checkbox("**Sentence**", False)
   col1, col2, col3, col4, col5 = st.columns(5)
-  emphasis_triple = col1.checkbox("Triple", True)
-  emphasis_subject = col2.checkbox("Subject", emphasis_triple)
-  emphasis_pred = col3.checkbox("Predicate", emphasis_triple)
-  emphasis_object = col4.checkbox("Object", emphasis_triple)
-  emphasis_adverbs = col5.checkbox("Adverbs", emphasis_triple)
+  emphasis_triple = col1.checkbox("**Triple**", True)
+  emphasis_subject = col2.checkbox("(Subject)", emphasis_triple)
+  emphasis_pred = col3.checkbox("(Predicate)", emphasis_triple)
+  emphasis_object = col4.checkbox("(Object)", emphasis_triple)
+  emphasis_adverbs = col5.checkbox("(Adverbs)", emphasis_triple)
 
   html_article = article
   if emphasis_sentence:
-    for sentence in sentences:
-      match = get_similar_part(article, sentence["text"])
+    temp_article = article
+    for i, sentence in enumerate(sentences):
+      match = get_similar_part(temp_article, sentence["text"])
+      temp_article = temp_article.replace(match, '')
 
       if match:
         hexscore = hex(
             int(100 / sentences[0]["score"] * sentence["score"]))[2:]
         background = f"background: #3366bb{hexscore}; padding: 0 2px"
+        smallborder = "border-radius: 2px"
+        position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
+        size = "font-size: 3px"
+        small = f"<span style='{size}; {background}; {smallborder}; {position}'>"
 
         border = "border-radius: 5px"
         html_sentence = sentence["text"].replace(
-            match, f"<span style='{border}; {background}'>{match}</span>")
+            match, f"<span style='{border}; {background}'>{match}</span>{small}S{i+1}</span>")
         html_article = html_article.replace(sentence["text"], html_sentence)
 
-  for triple in triples:
+  for i, triple in enumerate(triples):
     if len(triple['extraction']['arg2s']) > 0:
       knowledge = triple2sentence(triple)
-      article_sentence = get_similar_part(article, triple["sentence"])
+      match = get_similar_part(triple["parent"]["text"], knowledge)
 
-      match = get_similar_part(article_sentence, knowledge)
+      print(sentences.index(triple['parent'])+1,
+            i +
+            1, triple['extraction']['arg1']['text'], '|', triple['extraction']['rel']['text'],
+            '|', triple['extraction']['arg2s'][0]['text'],
+            '\n', match)
 
       if match:
         hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
@@ -101,23 +110,31 @@ async def main(article):
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
         size = "font-size: 3px"
+        small = f"<span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>"
 
         html_match = match
+        temp_match = triple["parent"]["text"]
         if emphasis_subject:
           submatch = get_similar_part(
-              match, triple["extraction"]["arg1"]["text"])
+              temp_match, triple["extraction"]["arg1"]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>S</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span>{small}S{i+1}</span>")
         if emphasis_pred:
           submatch = get_similar_part(
-              match, triple["extraction"]["rel"]["text"])
+              temp_match, triple["extraction"]["rel"]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>P</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span>{small}P{i+1}</span>")
         if emphasis_object:
           submatch = get_similar_part(
-              match, triple["extraction"]["arg2s"][0]["text"])
+              temp_match, triple["extraction"]["arg2s"][0]["text"])
           html_match = html_match.replace(
-              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span><span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>O</span>")
+              submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span>{small}O{i+1}</span>")
+        if emphasis_adverbs and len(triple["extraction"]["arg2s"]) > 1:
+          for adverb in triple["extraction"]["arg2s"][1:]:
+            submatch = get_similar_part(
+                temp_match, adverb["text"])
+            html_match = html_match.replace(
+                submatch, f"<span style='{border}; {background}; {color}'>{submatch}</span>{small}A{i+1}</span>")
 
         if emphasis_subject or emphasis_pred or emphasis_object or emphasis_adverbs:
           html_article = html_article.replace(match, html_match)
