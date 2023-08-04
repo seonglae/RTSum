@@ -47,10 +47,11 @@ class TripledSentence(TypedDict):
 
 async def extract_triple(text: str, threshold=0.0) -> TripledSentence:
   sentence: TripledSentence = {'text': text, 'triples': [], 'score': 0}
-  text = normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
+  normalized = normalize('NFKD', text).encode(
+      'ascii', 'ignore').decode('utf-8')
   try:
     async with aiohttp.ClientSession() as session:
-      sentence['triples'] = await extractor.extract(text, session)
+      sentence['triples'] = await extractor.extract(normalized, session)
     filtered = []
     for triple in sentence['triples']:
       if triple['confidence'] >= threshold:
@@ -89,14 +90,14 @@ def doc2sentences(docstring: str, model="en_core_web_sm") -> list[str]:
   return [sent.text for sent in document.sents]
 
 
-def write_article(args: str) -> None:
+async def write_article(args: str) -> None:
   [d_i, document, path] = args.split('\n')
   start = time()
   sentences = doc2sentences(document)
   output = ''
   for s_i, sentence in enumerate(sentences):
     output += f'S\t{d_i}\t{s_i}\t{sentence}\n'
-    triples = extract_triple(sentence)['triples']
+    triples = (await extract_triple(sentence))["triples"]
     for triple in triples:
       glue = '\t'
       output += f'R\t{triple2sentence(triple, None, glue)}\n'

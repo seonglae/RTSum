@@ -48,7 +48,7 @@ Rouge-L: {mean_rouge_l / (1 + int(i) - start)}""")
           break
 
 
-def exportarticle(path: str, output: str, start: int, end: int) -> None:
+async def exportarticle(path: str, output: str, start: int, end: int) -> None:
   with open(path, 'r', encoding='UTF8') as f:
     if start is None:
       start = 0
@@ -58,7 +58,7 @@ def exportarticle(path: str, output: str, start: int, end: int) -> None:
       if int(i) < start:
         continue
       if start <= int(i) < end:
-        write_article(f'{i}\n{line.strip()}\n{output}')
+        return await write_article(f'{i}\n{line.strip()}\n{output}')
       else:
         break
 
