@@ -7,7 +7,7 @@ from sjyyj.train import training
 
 
 async def text(text: str) -> str:
-  summary, _, _ = await summarize(text)
+  summary, _, _, _ = await summarize(text)
   return summary
 
 
@@ -17,7 +17,7 @@ async def file(path: str) -> str:
   return await text(document)
 
 
-def test(article_file: str, summary_file: str, start: int, end: int) -> None:
+async def test(article_file: str, summary_file: str, start: int, end: int) -> None:
   with open(article_file, 'r', encoding='UTF8') as articles:
     with open(summary_file, 'r', encoding='UTF8') as summaries:
       if start is None:
@@ -36,7 +36,7 @@ def test(article_file: str, summary_file: str, start: int, end: int) -> None:
               line.split('\t')[0]) == i, gold_summaries)
           gold_summary = ' '.join([line.split('\t')[2].strip()
                                   for line in target_lines])
-          score = summarize_test(article, gold_summary)
+          score = await summarize_test(article, gold_summary)
           mean_rouge1 += score['rouge1'].fmeasure
           mean_rouge2 += score['rouge2'].fmeasure
           mean_rouge_l += score['rougeL'].fmeasure
