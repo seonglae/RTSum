@@ -4,7 +4,6 @@ authors = [
 ]
 dependencies = [
     "fire~=0.5.0",
-    "pyopenie~=0.2.0",
     "transformers~=4.28.1",
     "sentence-transformers~=2.2.2",
     "datasets~=2.12.0",

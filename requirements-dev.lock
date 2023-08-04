@@ -68,7 +68,6 @@ pydantic==1.10.11
 pydeck==0.8.1b0
 pygments==2.15.1
 pympler==1.0.1
-pyopenie==0.2.0
 python-dateutil==2.8.2
 python-dotenv==1.0.0
 pytz==2023.3
