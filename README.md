@@ -2,7 +2,7 @@
 
 AI summarization algorithm which can **highlight the important part** of the article.
 
-![img](img/en.png)
+![img](img/all.png)
 
 It decompose sentences into triple and decomposing sentences into smaller units and recomposing them with the most important information. We integrated the concept of **Knowledge Graph and Relation triple** into summarization AI by **combining extractive summarization and abstractive summarization**.
 
@@ -46,6 +46,13 @@ python main.py text 'I made arrangements pick up her dog'
 docker compose up
 streamlit run web/simple.py
 ```
+
+### GUI Demo
+
+Inline visualization using highlighting. Red is for relation triple, blue is for sentence, and green is for phrase word.
+
+![img](img/phrase.png)
+
 
 ## Develop Experience
 
