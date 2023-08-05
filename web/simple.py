@@ -107,7 +107,7 @@ async def main(article: str):
         minimal = sentences[len(sentences) - 1]["score"]
         hexscore = hex(
             int(100 / (maximum - minimal) * (sentence["score"] - minimal)))[2:]
-        background = f"background: #3366bb{hexscore}; padding: 0 2px"
+        background = f"background: #ffff00{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
         size = "font-size: 3px"
@@ -175,7 +175,7 @@ async def main(article: str):
 
       if match:
         hexscore = hex(
-            int(150 / (maximum - minimal) * (phrase[1] - minimal)))[2:]
+            int(200 / (maximum - minimal) * (phrase[1] - minimal)))[2:]
         background = f"background: #33bb66{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
