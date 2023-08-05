@@ -103,8 +103,10 @@ async def main(article: str):
       temp_article = temp_article.replace(match, '', 1)
 
       if match:
+        maximum = sentences[0]["score"]
+        minimal = sentences[len(sentences) - 1]["score"]
         hexscore = hex(
-            int(100 / sentences[0]["score"] * sentence["score"]))[2:]
+            int(100 / (maximum - minimal) * (sentence["score"] - minimal)))[2:]
         background = f"background: #3366bb{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
@@ -123,7 +125,9 @@ async def main(article: str):
       match = get_similar_part(triple["parent"]["text"], knowledge)
 
       if match:
-        hexscore = hex(int(255 / triples[0]["score"] * triple["score"]))[2:]
+        maximum = triples[0]["score"]
+        minimal = triples[len(triples) - 1]["score"]
+        hexscore = hex(int(255 / (maximum - minimal) * (triple["score"] - minimal)))[2:]
         background = f"background: #bb3344{hexscore}; padding: 0 2px"
         color = f"color: #fff"
         black = f"color: #000"
@@ -171,7 +175,7 @@ async def main(article: str):
 
       if match:
         hexscore = hex(
-            int(100 / (maximum - minimal) * phrase[1]))[2:]
+            int(150 / (maximum - minimal) * (phrase[1] - minimal)))[2:]
         background = f"background: #33bb66{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
