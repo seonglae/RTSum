@@ -7,7 +7,7 @@ from sjyyj.summary import summarize
 from sjyyj.extract import triple2sentence
 
 
-TITLE = 'Three-line Summary'
+TITLE = 'RTSum: An Interpretable Summarizing Tool'
 INITIAL = """The temperature of the planet’s oceans rose to new heights this week, setting a new record with no sign of cooling down.
 
 The average global ocean surface temperature hit 20.96 degrees Celsius (69.7 Fahrenheit) at the end of July, according to modern data from the European Union’s Copernicus Climate Change Service, beating the previous record of 20.95 degrees Celsius set in 2016. The Copernicus ocean data goes back to 1979.
@@ -30,7 +30,7 @@ st.set_page_config(page_title=TITLE)
 st.header(TITLE)
 st.markdown('''
 ### Copy & Paste ([CNN](https://edition.cnn.com/), [FoxNews](https://www.foxnews.com/)).
-A three-line summary requires more than three lines of information. ([Usage Video](https://www.youtube.com/watch?v=fwk1Q-V5cro&t=350s), [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
+RTSum: An Interpretable Summarizing tool requires more than three lines of information. [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
 ''', unsafe_allow_html=True)
 
 styl = """
