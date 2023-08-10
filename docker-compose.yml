@@ -3,6 +3,7 @@ version: '3.7'
 services:
   openie5:
     image: chengchingwen/openie
+    restart: always
 
   nginx:
     image: nginx:latest
