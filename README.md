@@ -1,4 +1,5 @@
 # SJYYJ
+[**RTSUM: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization**](https://arxiv.org/abs/2310.13895)
 
 AI summarization algorithm which can **highlight the important part** of the article.
 
