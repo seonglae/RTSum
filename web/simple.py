@@ -110,7 +110,7 @@ async def main(article: str):
         background = f"background: #ffff00{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
-        size = "font-size: 3px"
+        size = "font-size: 0.5rem"
         small = f"<span style='{size}; {background}; {smallborder}; {position}'>"
 
         border = "border-radius: 5px"
@@ -135,7 +135,7 @@ async def main(article: str):
         border = "border-radius: 3px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
-        size = "font-size: 3px"
+        size = "font-size: 0.5rem"
         small = f"<span style='{size}; {black}; {subcolor}; {smallborder}; {position}'>"
 
         html_match = match
@@ -179,7 +179,7 @@ async def main(article: str):
         background = f"background: #33bb66{hexscore}; padding: 0 2px"
         smallborder = "border-radius: 2px"
         position = "position: relative; left: 2px; top: 2px; padding: 0 1px"
-        size = "font-size: 3px"
+        size = "font-size: 0.5rem"
         small = f"<span style='{size}; {background}; {smallborder}; {position}'>"
 
         border = "border-radius: 5px"
