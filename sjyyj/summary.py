@@ -30,7 +30,7 @@ async def summarize(text: str) -> Tuple[str, List[TripledSentence], List[Triple]
     return text, [], [], []
 
   start = time()
-  abstraction = abstract(triple_rank, 'sjyyj/sjyyj',
+  abstraction = abstract(triple_rank, 'seonglae/rtsum',
                          0), sentence_rank, triple_rank, phrase_rank
   print(f"Abstraction takes time {time() - start} secs\n")
   return abstraction
