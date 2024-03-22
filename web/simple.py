@@ -30,7 +30,7 @@ st.set_page_config(page_title=TITLE)
 st.header(TITLE)
 st.markdown('''
 ### Copy & Paste ([CNN](https://edition.cnn.com/), [FoxNews](https://www.foxnews.com/)).
-RTSum requires more than three lines of information. [Source Code](https://github.com/sjyyj/sjyyj), [Model](https://huggingface.co/sjyyj/sjyyj))
+RTSum requires more than three lines of information. [Source Code](https://github.com/seonglae/RTSum), [Model](https://huggingface.co/seonglae/rtsum))
 ''', unsafe_allow_html=True)
 
 styl = """
