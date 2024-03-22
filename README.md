@@ -1,4 +1,4 @@
-# SJYYJ
+# RTSum
 [**RTSUM: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization**](https://arxiv.org/abs/2310.13895)
 
 AI summarization algorithm which can **highlight the important part** of the article.
@@ -26,7 +26,7 @@ python -m spacy download en_core_web_sm
 
 ### `.env` Example
 
-Running OpenIE server is needed for SJYYJ to work. You should make a `.env` file in the root
+Running OpenIE server is needed for RTSum to work. You should make a `.env` file in the root
 OpenIE server requires around 10GB of RAM to run.
 
 ```zsh
