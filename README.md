@@ -1,7 +1,8 @@
 # RTSum
 [**RTSUM: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization**](https://arxiv.org/abs/2310.13895)
+- [Relation combiner model](https://huggingface.co/seonglae/rtsum)
+- [Training dataset](https://huggingface.co/datasets/seonglae/data-rtsum)
 
-AI summarization algorithm which can **highlight the important part** of the article.
 
 ![img](img/all.png)
 
@@ -50,8 +51,7 @@ streamlit run web/simple.py
 ```
 
 ### GUI Demo
-
-Inline visualization using highlighting. Red is for relation triple, blue is for sentence, and green is for phrase word.
+AI summarization algorithm which can **highlight the important part** of the article with inline visualization using highlighting. Red is for relation triple, blue is for sentence, and green is for phrase word.
 
 ![img](img/phrase.png)
 
