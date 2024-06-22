@@ -1,5 +1,5 @@
 # RTSum
-[**RTSUM: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization**](https://arxiv.org/abs/2310.13895)
+[**RTSUM: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization**](https://aclanthology.org/2024.naacl-demo.5)
 - [Relation combiner model](https://huggingface.co/seonglae/rtsum)
 - [Training dataset](https://huggingface.co/datasets/seonglae/data-rtsum)
 
